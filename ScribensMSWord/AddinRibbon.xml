@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<customUI xmlns="http://schemas.microsoft.com/office/2009/07/customui" onLoad="Ribbon_Load" loadImage="GetImageByName">
+  <ribbon>
+    <tabs>
+      <tab idMso="TabAddIns" label="Scribens">
+        <group id="CommonGroup">
+          <button id="ShowTaskPaneButton"
+                  screentip="Vérifier" size="large"
+                  getImage="GetImage" getLabel="GetLabel"
+                  onAction="ShowSolutions"
+                  supertip="Cliquez ici pour démarrer la correction du document."/>
+        </group>
+
+        <group id="SolutionGroup">
+          <toggleButton id="CorrectionModeButton" size="large"
+                        getImage="GetImage" getLabel="GetLabel"
+                        screentip="Orthographe" tag="Correction"
+                        onAction="OnSolutionButtonSwitch"
+                        getPressed="SolutionButtonGetPressed"
+                        getEnabled="SolutionButtonGetEnabled"
+                        supertip="Cliquez ici pour afficher les fautes d'orthographe et de grammaire du texte."/>
+
+          <toggleButton id="RedundancyModeButton" size="large"
+                        getImage="GetImage" getLabel="GetLabel"
+                        screentip="Redondances" tag="Redundancy"
+                        onAction="OnSolutionButtonSwitch"
+                        getPressed="SolutionButtonGetPressed"
+                        getEnabled="SolutionButtonGetEnabled"
+                        supertip="Cliquez ici pour afficher les redondances du texte."/>
+
+          <toggleButton id="LongSentenceModeButton" size="large"
+                        getImage="GetImage" getLabel="GetLabel"
+                        screentip="Phrases longues"  tag="LongSentence"
+                        onAction="OnSolutionButtonSwitch"
+                        getPressed="SolutionButtonGetPressed"
+                        getEnabled="SolutionButtonGetEnabled"
+                        supertip="Cliquez ici pour afficher les phrases longues du texte."/>
+
+          <toggleButton id="ReformulationModeButton" size="large"
+                        getImage="GetImage" getLabel="GetLabel"
+                        screentip="Reformulations"  tag="Reformulation"
+                        onAction="OnSolutionButtonSwitch"
+                        getPressed="SolutionButtonGetPressed"
+                        getEnabled="SolutionButtonGetEnabled"
+                        supertip="Cliquez ici pour afficher les propositions de reformulations du texte."/>
+
+          <toggleButton id="VocabularyEnhancementModeButton" size="large"
+                        getImage="GetImage" getLabel="GetLabel"
+                        screentip="Amélioration de vocabulaire"  tag="VocabularyEnhancement"
+                        onAction="OnSolutionButtonSwitch"
+                        getPressed="SolutionButtonGetPressed"
+                        getEnabled="SolutionButtonGetEnabled"
+                        supertip="Cliquez ici pour afficher les propositions d'amélioration de vocabulaire du texte."/>
+
+          <toggleButton id="SubjectivityPositiveModeButton" size="large"
+                        getImage="GetImage" getLabel="GetLabel"
+                        screentip="Subjectivité - positif" tag="SubjectivityPositive"
+                        onAction="OnSolutionButtonSwitch"
+                        getPressed="SolutionButtonGetPressed"
+                        getEnabled="SolutionButtonGetEnabled"
+                        supertip="Cliquez ici pour afficher les propositions de subjectivité positive du texte."/>
+
+          <toggleButton id="SubjectivityNegativeModeButton" size="large"
+                        getImage="GetImage" getLabel="GetLabel"
+                        screentip="Subjectivité - négatif" tag="SubjectivityNegative"
+                        onAction="OnSolutionButtonSwitch"
+                        getPressed="SolutionButtonGetPressed"
+                        getEnabled="SolutionButtonGetEnabled"
+                        supertip="Cliquez ici pour afficher les propositions de subjectivité négative du texte."/>
+
+          <toggleButton id="WordReductionModeButton" size="large"
+                        getImage="GetImage" getLabel="GetLabel"
+                        screentip="Réduction de mots" tag="WordReduction"
+                        onAction="OnSolutionButtonSwitch"
+                        getPressed="SolutionButtonGetPressed"
+                        getEnabled="SolutionButtonGetEnabled"
+                        supertip="Cliquez ici pour afficher les propositions de réduction de mots du texte."/>
+        </group>
+
+        <group id="LanguageGroup">
+          <box boxStyle="vertical" id="LanguageBox">
+            <labelControl getLabel="GetLabel" id="LanguageLabel"/>
+            <dropDown id="LanguageComboBox" getSelectedItemID="InitLanguageDropDown" onAction="OnLanguageChanged" screentip="Langage" supertip="Cliquez ici pour changer la langue de correction.">
+              <item id="fr" label="Français" image="french-flag.png"/>
+              <item id="en" label="Anglais" image="england-flag.png"/>
+            </dropDown>
+          </box>
+         
+        </group>
+        
+        <!--<group id="SettingsGroup">
+          <button id="SettingsButton"
+                  getImage="GetImage" getLabel="GetLabel"
+                  screentip="Settings" size="large"
+                  onAction="ShowSettingsPage"
+                  supertip="Open settings page."/>
+        </group>-->
+
+        <group id="AccountGroup">
+          <button id="ShowUserAccountButton" size="large"
+                  getImage="GetImage" getLabel="GetLabel"
+                  onAction="ShowUserInfo"
+                  screentip="Compte utilisateur"
+                  supertip="Cliquez ici pour afficher le compte utilisateur."/>
+        </group>
+      </tab>
+    </tabs>
+  </ribbon>
+
+  <backstage onShow="BackStage_Show" onHide="BackStage_Hide">
+  </backstage>
+
+</customUI>

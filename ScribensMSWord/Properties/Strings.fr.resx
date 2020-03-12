@@ -1,0 +1,315 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Common.Month" xml:space="preserve">
+    <value>mois</value>
+  </data>
+  <data name="Common.Year" xml:space="preserve">
+    <value>an</value>
+  </data>
+  <data name="Language.English" xml:space="preserve">
+    <value>Anglais</value>
+  </data>
+  <data name="Language.French" xml:space="preserve">
+    <value>Français</value>
+  </data>
+  <data name="Ribbon.CloseTaskPane" xml:space="preserve">
+    <value>Fermer Scribens</value>
+  </data>
+  <data name="Ribbon.CorrectionModeButton" xml:space="preserve">
+    <value>Orthographe</value>
+  </data>
+  <data name="Ribbon.LanguageLabel" xml:space="preserve">
+    <value> Langage</value>
+  </data>
+  <data name="Ribbon.LongSentenceModeButton" xml:space="preserve">
+    <value>Phrases longues</value>
+  </data>
+  <data name="Ribbon.RedundancyModeButton" xml:space="preserve">
+    <value>Redondances</value>
+  </data>
+  <data name="Ribbon.ReformulationModeButton" xml:space="preserve">
+    <value>Reformulations</value>
+  </data>
+  <data name="Ribbon.SettingsButton" xml:space="preserve">
+    <value>Réglages</value>
+  </data>
+  <data name="Ribbon.ShowTaskPaneButton" xml:space="preserve">
+    <value>Vérifier</value>
+  </data>
+  <data name="Ribbon.ShowUserAccountButton" xml:space="preserve">
+    <value>Compte utilisateur</value>
+  </data>
+  <data name="Ribbon.SubjectivityNegativeModeButton" xml:space="preserve">
+    <value>Subjectivité - négatif</value>
+  </data>
+  <data name="Ribbon.SubjectivityPositiveModeButton" xml:space="preserve">
+    <value>Subjectivité - positif</value>
+  </data>
+  <data name="Ribbon.VocabularyEnhancementModeButton" xml:space="preserve">
+    <value>Amélioration de vocabulaire</value>
+  </data>
+  <data name="Ribbon.WordReductionModeButton" xml:space="preserve">
+    <value>Réduction de mots</value>
+  </data>
+  <data name="SettingsWindow.AllowBackgroundChecking" xml:space="preserve">
+    <value>Autoriser la vérification des antécédents</value>
+  </data>
+  <data name="SettingsWindow.BackgroundChecking" xml:space="preserve">
+    <value>Correction</value>
+  </data>
+  <data name="SettingsWindow.Cancel" xml:space="preserve">
+    <value>Annuler</value>
+  </data>
+  <data name="SettingsWindow.CheckInterval" xml:space="preserve">
+    <value>Vérifier tout les</value>
+  </data>
+  <data name="SettingsWindow.CheckIntervalUnit" xml:space="preserve">
+    <value>seconde(s)</value>
+  </data>
+  <data name="SettingsWindow.Language" xml:space="preserve">
+    <value>Langage</value>
+  </data>
+  <data name="SettingsWindow.PersonalSettingsHeader" xml:space="preserve">
+    <value>Principal</value>
+  </data>
+  <data name="SettingsWindow.Save" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="SettingsWindow.Title" xml:space="preserve">
+    <value>Réglages</value>
+  </data>
+  <data name="TaskPane.AccountExpired" xml:space="preserve">
+    <value>Votre compte Premium est expiré</value>
+  </data>
+  <data name="TaskPane.ApplyAll" xml:space="preserve">
+    <value>Corrigez tous les problèmes</value>
+  </data>
+  <data name="TaskPane.ApplySolutionButtonToolTip" xml:space="preserve">
+    <value>Clickez ici pour effectuer la correction</value>
+  </data>
+  <data name="TaskPane.BuySubscription" xml:space="preserve">
+    <value>Acheter un abonnement Premium</value>
+  </data>
+  <data name="TaskPane.Checking" xml:space="preserve">
+    <value>Vérification</value>
+  </data>
+  <data name="TaskPane.ExceedLimitCharacters" xml:space="preserve">
+    <value>Votre texte dépasse le nombre de caractères autorisé.</value>
+  </data>
+  <data name="TaskPane.ExceedTrial" xml:space="preserve">
+    <value>Votre version d'essai est arrivée à expiration</value>
+  </data>
+  <data name="TaskPane.IgnoreAll" xml:space="preserve">
+    <value>Ignorer tous les problèmes</value>
+  </data>
+  <data name="TaskPane.IgnoreCorrection" xml:space="preserve">
+    <value>Ignorer cette correction</value>
+  </data>
+  <data name="TaskPane.IssuesFound" xml:space="preserve">
+    <value>Erreurs trouvées</value>
+  </data>
+  <data name="TaskPane.NoIssuesFound" xml:space="preserve">
+    <value>Aucune erreur trouvée</value>
+  </data>
+  <data name="TaskPane.NoSuggestion" xml:space="preserve">
+    <value>Aucune suggestion</value>
+  </data>
+  <data name="TaskPane.Subscribe" xml:space="preserve">
+    <value>Abonnez-vous à la version Premium pour bénéficier de tous les avantages de Scribens</value>
+  </data>
+  <data name="TaskPane.Title" xml:space="preserve">
+    <value>Scribens</value>
+  </data>
+  <data name="UserInfoPane.BecomePremium" xml:space="preserve">
+    <value>Devenir Premium</value>
+  </data>
+  <data name="UserInfoPane.Clear" xml:space="preserve">
+    <value>Clair</value>
+  </data>
+  <data name="UserInfoPane.Connect" xml:space="preserve">
+    <value>Se connecter</value>
+  </data>
+  <data name="UserInfoPane.Email" xml:space="preserve">
+    <value>Email:</value>
+  </data>
+  <data name="UserInfoPane.ExpiredDate" xml:space="preserve">
+    <value>Date d'expiration:</value>
+  </data>
+  <data name="UserInfoPane.SubscriptionType_P1M" xml:space="preserve">
+    <value>Premium 1 mois</value>
+  </data>
+  <data name="UserInfoPane.SubscriptionType_P3M" xml:space="preserve">
+    <value>Premium 3 mois</value>
+  </data>
+  <data name="UserInfoPane.SubscriptionType_P1A" xml:space="preserve">
+    <value>Premium 1 an</value>
+  </data>
+  <data name="UserInfoPane.Login" xml:space="preserve">
+    <value>Connexion à mon compte</value>
+  </data>
+  <data name="UserInfoPane.Message.InactiveAccount" xml:space="preserve">
+    <value>Compte non activé</value>
+  </data>
+  <data name="UserInfoPane.Message.InvalidAccount" xml:space="preserve">
+    <value>Identification invalide</value>
+  </data>
+  <data name="UserInfoPane.Message.LoginUnknownError" xml:space="preserve">
+    <value>Une erreur inconnue s'est produite lors de la connexion. Veuillez vérifier le fichier journal</value>
+  </data>
+  <data name="UserInfoPane.Message.RemainingDays" xml:space="preserve">
+    <value>jour restant</value>
+  </data>
+  <data name="UserInfoPane.Message.RemainingMonths" xml:space="preserve">
+    <value>mois restant</value>
+  </data>
+  <data name="UserInfoPane.Message.RemainingYears" xml:space="preserve">
+    <value>an restant</value>
+  </data>
+  <data name="UserInfoPane.Message.SessionActive" xml:space="preserve">
+    <value>Scribens est en cours d'utilisation par un autre utilisateur</value>
+  </data>
+  <data name="UserInfoPane.Message.SignOutConfirm" xml:space="preserve">
+    <value>Êtes-vous certain de vouloir vous déconnexion?</value>
+  </data>
+  <data name="UserInfoPane.MyAccount" xml:space="preserve">
+    <value>Mon compte</value>
+  </data>
+  <data name="UserInfoPane.Password" xml:space="preserve">
+    <value>Mot de passe:</value>
+  </data>
+  <data name="UserInfoPane.SignOut" xml:space="preserve">
+    <value>Déconnexion</value>
+  </data>
+  <data name="UserInfoPane.Subscription" xml:space="preserve">
+    <value>Abonnement:</value>
+  </data>
+  <data name="UserInfoPane.Subscription.Expired" xml:space="preserve">
+    <value>Expiré</value>
+  </data>
+  <data name="UserInfoPane.Subscription.NotExist" xml:space="preserve">
+    <value>Inexistant</value>
+  </data>
+  <data name="UserInfoPane.Subscription.Trial" xml:space="preserve">
+    <value>Trial</value>
+  </data>
+  <data name="UserInfoPane.UserName" xml:space="preserve">
+    <value>Nom d'utilisateur:</value>
+  </data>
+</root>

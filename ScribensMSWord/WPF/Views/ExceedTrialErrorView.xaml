@@ -1,0 +1,63 @@
+﻿<UserControl x:Class="ScribensMSWord.WPF.Views.ExceedTrialErrorView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:converters="clr-namespace:ScribensMSWord.WPF.Converters"
+             mc:Ignorable="d" 
+             d:DesignHeight="800" d:DesignWidth="400">
+
+    <UserControl.Resources>
+        <converters:StringResourceConverter x:Key="StringResourceConverter"/>
+        <Style TargetType="Button">
+            <Setter Property="Height" Value="34"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Background" Value="#297BBF"/>
+            <Setter Property="FontSize" Value="11pt"/>
+            <Setter Property="Cursor" Value="Hand"/>
+        </Style>
+    </UserControl.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="8"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Image Source="pack://application:,,,/ScribensMSWord;component/Resources/calendar2.png" Width="64"
+                                       RenderOptions.BitmapScalingMode="HighQuality"/>
+
+        <TextBlock Text="{Binding Path=ErrorMessage, Converter={StaticResource StringResourceConverter}}"
+                                           TextWrapping="Wrap" HorizontalAlignment="Center" Grid.Row="2" TextAlignment="Center"
+                                           FontSize="16pt" FontWeight="Bold" Foreground="#297BBF"/>
+
+        <TextBlock Text="{Binding Path=SubscribeMessage, Converter={StaticResource StringResourceConverter}}"
+                                           TextWrapping="Wrap" TextAlignment="Center" FontSize="11pt" Grid.Row="4" Foreground="#526174"/>
+
+        <Button Grid.Row="6" Content="{Binding Path=BecomePremiumMessage, Converter={StaticResource StringResourceConverter}}"
+                                        Command="{Binding Path=BecomePremiumCommand}">
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="4"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+
+        <Button Grid.Row="8" Content="{Binding Path=SignInMessage, Converter={StaticResource StringResourceConverter}}"
+                                        Command="{Binding Path=LoginCommand}">
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="4"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+
+    </Grid>
+</UserControl>
