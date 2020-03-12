@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Text.RegularExpressions;
 
-namespace ScribensMSWord.ExtensionMethods
+namespace PluginScribens_Word.ExtensionMethods
 {
     public static class StringExtensions
     {

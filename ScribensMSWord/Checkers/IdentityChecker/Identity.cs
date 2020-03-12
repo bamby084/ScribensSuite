@@ -1,8 +1,8 @@
 ﻿using System;
-using ScribensMSWord.Enums;
-using ScribensMSWord.ExtensionMethods;
+using PluginScribens_Word.Enums;
+using PluginScribens_Word.ExtensionMethods;
 
-namespace ScribensMSWord.Checkers.IdentityChecker
+namespace PluginScribens_Word.Checkers.IdentityChecker
 {
     public class Identity
     {

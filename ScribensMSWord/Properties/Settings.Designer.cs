@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ScribensMSWord.Properties {
+namespace PluginScribens_Word.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]

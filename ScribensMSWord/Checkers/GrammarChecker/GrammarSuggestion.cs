@@ -2,9 +2,9 @@
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Windows.Input;
-using ScribensMSWord.WPF;
+using PluginScribens_Word.WPF;
 
-namespace ScribensMSWord.Checkers.GrammarChecker
+namespace PluginScribens_Word.Checkers.GrammarChecker
 {
     public class ApplySuggestionEventHandlerArgs : EventArgs
     {

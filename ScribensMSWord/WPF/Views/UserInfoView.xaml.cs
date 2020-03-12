@@ -2,7 +2,7 @@
 using System.Windows.Controls;
 using System.Windows.Navigation;
 
-namespace ScribensMSWord.WPF.Views
+namespace PluginScribens_Word.WPF.Views
 {
     /// <summary>
     /// Interaction logic for UserInfoView.xaml

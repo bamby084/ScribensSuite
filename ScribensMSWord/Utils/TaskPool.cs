@@ -6,7 +6,7 @@ using Task = System.Threading.Tasks.Task;
 using System.Linq;
 using System.Diagnostics;
 
-namespace ScribensMSWord.Utils
+namespace PluginScribens_Word.Utils
 {
     public class TaskPool
     {

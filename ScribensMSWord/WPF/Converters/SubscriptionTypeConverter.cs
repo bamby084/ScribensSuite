@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Globalization;
 using System.Windows.Data;
-using ScribensMSWord.Enums;
+using PluginScribens_Word.Enums;
 
-namespace ScribensMSWord.WPF.Converters
+namespace PluginScribens_Word.WPF.Converters
 {
     public class SubscriptionTypeConverter : IValueConverter
     {

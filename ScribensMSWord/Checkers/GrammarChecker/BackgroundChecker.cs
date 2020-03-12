@@ -1,15 +1,15 @@
 ﻿using System;
 using Microsoft.Office.Interop.Word;
-using ScribensMSWord.ExtensionMethods;
 using System.Collections.Generic;
 using System.Linq;
 using Timer = System.Timers.Timer;
 using System.Threading;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
-using ScribensMSWord.Utils;
+using PluginScribens_Word.ExtensionMethods;
+using PluginScribens_Word.Utils;
 
-namespace ScribensMSWord.Checkers.GrammarChecker
+namespace PluginScribens_Word.Checkers.GrammarChecker
 {
     public class CheckCompletedEventArgs : EventArgs
     {

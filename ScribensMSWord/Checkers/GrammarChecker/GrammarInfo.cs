@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System.Collections.Generic;
 
-namespace ScribensMSWord.Checkers.GrammarChecker
+namespace PluginScribens_Word.Checkers.GrammarChecker
 {
     public class SolutionVector
     {

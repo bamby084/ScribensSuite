@@ -1,20 +1,20 @@
-﻿<UserControl x:Class="ScribensMSWord.WPF.Views.SolutionsView"
+﻿<UserControl x:Class="PluginScribens_Word.WPF.Views.SolutionsView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:controls="clr-namespace:ScribensMSWord.WPF.Controls"
-             xmlns:views="clr-namespace:ScribensMSWord.WPF.Views"
-             xmlns:viewModels="clr-namespace:ScribensMSWord.WPF.ViewModels"
-             xmlns:converters="clr-namespace:ScribensMSWord.WPF.Converters"
-             xmlns:gc="clr-namespace:ScribensMSWord.Checkers.GrammarChecker"
+             xmlns:controls="clr-namespace:PluginScribens_Word.WPF.Controls"
+             xmlns:views="clr-namespace:PluginScribens_Word.WPF.Views"
+             xmlns:viewModels="clr-namespace:PluginScribens_Word.WPF.ViewModels"
+             xmlns:converters="clr-namespace:PluginScribens_Word.WPF.Converters"
+             xmlns:gc="clr-namespace:PluginScribens_Word.Checkers.GrammarChecker"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     
     <UserControl.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="/ScribensMSWord;component/WPF/Themes/AppStyle.xaml"/>
+                <ResourceDictionary Source="/PluginScribens_Word;component/WPF/Themes/AppStyle.xaml"/>
             </ResourceDictionary.MergedDictionaries>
 
             <converters:NullToVisibilityConverter x:Key="Null2VisibilityConverter"/>
@@ -83,7 +83,7 @@
                     Visibility="{Binding Path=SelectedSolution, Converter={StaticResource Null2VisibilityConverter}}">
                 <Button Style="{StaticResource ActionButtonStyle}" Width="30" Height="30" ToolTip="{Binding Path=IgnoreSolutionToolTip}"
                     Command="{Binding Path=IgnoreSolutionCommand}">
-                    <Image Source="/ScribensMSWord;component/Resources/trashx32.png"/>
+                    <Image Source="/PluginScribens_Word;component/Resources/trashx32.png"/>
                 </Button>
             </StackPanel>
 
@@ -135,10 +135,10 @@
             </Grid.ColumnDefinitions>
 
             <controls:AnimatedImage x:Name="LoadingImage" Width="24" Height="24" VerticalAlignment="Center" Grid.Column="1"
-                                    GifSource="/ScribensMSWord;component/Resources/reloadx26.gif" 
+                                    GifSource="/PluginScribens_Word;component/Resources/reloadx26.gif" 
                                     Visibility="{Binding Path=LoadingImageVisibility, FallbackValue=Collapsed}"/>
 
-            <Image x:Name="NoIssuesImage" Width="26" Height="26" Source="/ScribensMSWord;component/Resources/successful.png" 
+                <Image x:Name="NoIssuesImage" Width="26" Height="26" Source="/PluginScribens_Word;component/Resources/successful.png" 
                    Grid.Column="1" Visibility="{Binding Path=NoIssueImageVisiblity, FallbackValue=Collapsed}"/>
 
             <Button x:Name="IssuesCount" Visibility="{Binding Path=IssueCountControlVisibility, FallbackValue=Visible}" Grid.Column="1">

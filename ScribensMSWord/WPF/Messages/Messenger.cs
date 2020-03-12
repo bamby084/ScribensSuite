@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using ScribensMSWord.WPF.ViewModels;
+using PluginScribens_Word.WPF.ViewModels;
 
-namespace ScribensMSWord.WPF.Messages
+namespace PluginScribens_Word.WPF.Messages
 {
     public class Messenger
     {

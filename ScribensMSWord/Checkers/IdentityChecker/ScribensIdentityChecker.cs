@@ -5,11 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Web;
 using Newtonsoft.Json;
-using ScribensMSWord.Enums;
-using ScribensMSWord.Utils;
-using ScribensMSWord.ExtensionMethods;
+using PluginScribens_Word.Enums;
+using PluginScribens_Word.Utils;
+using PluginScribens_Word.ExtensionMethods;
 
-namespace ScribensMSWord.Checkers.IdentityChecker
+namespace PluginScribens_Word.Checkers.IdentityChecker
 {
     public class ScribensIdentityChecker : IIdentityChecker
     {

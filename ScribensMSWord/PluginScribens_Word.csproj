@@ -24,7 +24,7 @@
     <ProjectGuid>{747A7594-67D8-4EE3-84A9-8E7ECD0D18AB}</ProjectGuid>
     <OutputType>Library</OutputType>
     <NoStandardLibraries>false</NoStandardLibraries>
-    <RootNamespace>ScribensMSWord</RootNamespace>
+    <RootNamespace>PluginScribens_Word</RootNamespace>
     <AssemblyName>PluginScribens_Word</AssemblyName>
     <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <DefineConstants>VSTO40</DefineConstants>
@@ -40,7 +40,7 @@
     <UpdateEnabled>true</UpdateEnabled>
     <UpdateInterval>7</UpdateInterval>
     <UpdateIntervalUnits>days</UpdateIntervalUnits>
-    <ProductName>ScribensMSWord</ProductName>
+    <ProductName>PluginScribens_Word</ProductName>
     <PublisherName />
     <SupportUrl />
     <FriendlyName>Scribens</FriendlyName>

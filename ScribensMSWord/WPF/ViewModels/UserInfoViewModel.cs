@@ -1,15 +1,15 @@
-﻿using ScribensMSWord.ExtensionMethods;
+﻿using PluginScribens_Word.ExtensionMethods;
 using System;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
-using ScribensMSWord.Attributes;
-using ScribensMSWord.Checkers.IdentityChecker;
-using ScribensMSWord.Enums;
-using ScribensMSWord.Utils;
-using ScribensMSWord.WPF.Messages;
+using PluginScribens_Word.Attributes;
+using PluginScribens_Word.Checkers.IdentityChecker;
+using PluginScribens_Word.Enums;
+using PluginScribens_Word.Utils;
+using PluginScribens_Word.WPF.Messages;
 
-namespace ScribensMSWord.WPF.ViewModels
+namespace PluginScribens_Word.WPF.ViewModels
 {
     public class UserInfoViewModel: BaseViewModel,
         IMessageHandler<LogInCompletedMessage>, 

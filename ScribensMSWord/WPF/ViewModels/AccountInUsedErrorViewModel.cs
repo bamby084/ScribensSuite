@@ -1,5 +1,5 @@
 ﻿
-namespace ScribensMSWord.WPF.ViewModels
+namespace PluginScribens_Word.WPF.ViewModels
 {
     public class AccountInUsedErrorViewModel: ErrorViewModel
     {

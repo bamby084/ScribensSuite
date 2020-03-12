@@ -9,7 +9,7 @@
 //------------------------------------------------------------------------------
 
 #pragma warning disable 414
-namespace ScribensMSWord {
+namespace PluginScribens_Word {
     
     
     /// 

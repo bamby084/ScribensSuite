@@ -1,6 +1,6 @@
-﻿using ScribensMSWord.WPF.ViewModels;
+﻿using PluginScribens_Word.WPF.ViewModels;
 
-namespace ScribensMSWord.WPF.Views
+namespace PluginScribens_Word.WPF.Views
 {
     public partial class TaskPaneView
     {

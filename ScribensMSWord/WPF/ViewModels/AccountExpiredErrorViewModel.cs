@@ -1,7 +1,7 @@
 ﻿using System.Diagnostics;
 using System.Windows.Input;
 
-namespace ScribensMSWord.WPF.ViewModels
+namespace PluginScribens_Word.WPF.ViewModels
 {
     public class AccountExpiredErrorViewModel: ErrorViewModel
     {

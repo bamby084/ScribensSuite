@@ -1,6 +1,6 @@
-﻿using ScribensMSWord.WPF.ViewModels;
+﻿using PluginScribens_Word.WPF.ViewModels;
 
-namespace ScribensMSWord.WPF.Messages
+namespace PluginScribens_Word.WPF.Messages
 {
     public class ShowErrorMessage: ViewModelMessage
     {

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Input;
 
-namespace ScribensMSWord.WPF
+namespace PluginScribens_Word.WPF
 {
     public class RelayCommand : ICommand
     {

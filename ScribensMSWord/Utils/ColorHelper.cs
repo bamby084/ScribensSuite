@@ -1,7 +1,7 @@
 ﻿using Microsoft.Office.Interop.Word;
 using System.Windows.Media;
 
-namespace ScribensMSWord.Utils
+namespace PluginScribens_Word.Utils
 {
     public class ColorHelper
     {

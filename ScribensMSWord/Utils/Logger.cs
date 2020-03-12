@@ -1,11 +1,11 @@
 ﻿using log4net;
 using System;
 
-namespace ScribensMSWord.Utils
+namespace PluginScribens_Word.Utils
 {
     public static class Logger
     {
-        private static readonly ILog _logger = LogManager.GetLogger("ScribensMSWord");
+        private static readonly ILog _logger = LogManager.GetLogger("ScribensWord");
 
         public static void Error(Exception ex)
         {

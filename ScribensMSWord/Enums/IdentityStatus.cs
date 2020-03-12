@@ -1,6 +1,6 @@
-﻿using ScribensMSWord.Attributes;
+﻿using PluginScribens_Word.Attributes;
 
-namespace ScribensMSWord.Enums
+namespace PluginScribens_Word.Enums
 {
     public enum IdentityStatus
     {

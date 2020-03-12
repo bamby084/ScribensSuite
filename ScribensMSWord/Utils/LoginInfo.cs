@@ -2,7 +2,7 @@
 using System;
 using System.IO;
 
-namespace ScribensMSWord.Utils
+namespace PluginScribens_Word.Utils
 {
     public class LoginInfo
     {

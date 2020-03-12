@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ScribensMSWord.Utils
+namespace PluginScribens_Word.Utils
 {
     public struct DateTimeSpan
     {

@@ -3,9 +3,9 @@ using System;
 using System.ComponentModel;
 using System.IO;
 using System.Runtime.CompilerServices;
-using ScribensMSWord.WPF.Converters;
+using PluginScribens_Word.WPF.Converters;
 
-namespace ScribensMSWord.Utils
+namespace PluginScribens_Word.Utils
 {
     public class Settings: INotifyPropertyChanged
     {

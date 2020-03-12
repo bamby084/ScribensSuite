@@ -1,8 +1,8 @@
 ﻿using System.Drawing;
 using System.Windows.Forms;
-using ScribensMSWord.WPF.Views;
+using PluginScribens_Word.WPF.Views;
 
-namespace ScribensMSWord
+namespace PluginScribens_Word
 {
     public partial class TaskPaneHost : UserControl
     {

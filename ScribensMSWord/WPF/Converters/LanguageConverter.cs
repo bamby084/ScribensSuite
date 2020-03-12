@@ -1,9 +1,9 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Linq;
-using ScribensMSWord.Utils;
+using PluginScribens_Word.Utils;
 
-namespace ScribensMSWord.WPF.Converters
+namespace PluginScribens_Word.WPF.Converters
 {
     public class LanguageConverter : JsonConverter<Language>
     {

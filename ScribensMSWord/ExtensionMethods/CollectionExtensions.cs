@@ -1,7 +1,7 @@
 ﻿using System.Linq;
 using System.Collections.Specialized;
 
-namespace ScribensMSWord.ExtensionMethods
+namespace PluginScribens_Word.ExtensionMethods
 {
     public static class CollectionExtensions
     {

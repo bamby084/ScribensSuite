@@ -1,10 +1,10 @@
 ﻿using System;
 using Microsoft.Office.Core;
 using Microsoft.Office.Interop.Word;
-using ScribensMSWord.Utils;
 using System.Linq;
+using PluginScribens_Word.Utils;
 
-namespace ScribensMSWord.ExtensionMethods
+namespace PluginScribens_Word.ExtensionMethods
 {
     public static class WindowExtensions
     {

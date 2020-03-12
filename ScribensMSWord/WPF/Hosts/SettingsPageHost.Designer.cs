@@ -1,6 +1,6 @@
-﻿using ScribensMSWord.WPF.Controls;
+﻿using PluginScribens_Word.WPF.Controls;
 
-namespace ScribensMSWord
+namespace PluginScribens_Word
 {
     partial class SettingsPageHost
     {

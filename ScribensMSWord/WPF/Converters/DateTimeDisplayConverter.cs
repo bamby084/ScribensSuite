@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Globalization;
 using System.Windows.Data;
-using ScribensMSWord.Utils;
+using PluginScribens_Word.Utils;
 
-namespace ScribensMSWord.WPF.Converters
+namespace PluginScribens_Word.WPF.Converters
 {
     public class DateTimeDisplayConverter : IValueConverter
     {

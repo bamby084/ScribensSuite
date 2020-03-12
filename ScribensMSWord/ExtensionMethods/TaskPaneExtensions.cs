@@ -2,7 +2,7 @@
 using Microsoft.Office.Tools;
 using System.Linq;
 
-namespace ScribensMSWord.ExtensionMethods
+namespace PluginScribens_Word.ExtensionMethods
 {
     public static class TaskPaneExtensions
     {

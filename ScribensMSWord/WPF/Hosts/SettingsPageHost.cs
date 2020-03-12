@@ -1,7 +1,7 @@
 ﻿using System.Windows.Forms;
-using ScribensMSWord.WPF;
+using PluginScribens_Word.WPF;
 
-namespace ScribensMSWord
+namespace PluginScribens_Word
 {
     public partial class SettingsPageHost : Form
     {

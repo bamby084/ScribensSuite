@@ -2,7 +2,7 @@
 using System.Globalization;
 using System.Windows.Data;
 
-namespace ScribensMSWord.WPF.Converters
+namespace PluginScribens_Word.WPF.Converters
 {
     public class StringResourceConverter : IValueConverter
     {

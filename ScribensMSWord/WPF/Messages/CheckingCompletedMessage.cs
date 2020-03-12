@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
-using ScribensMSWord.Checkers.GrammarChecker;
-using ScribensMSWord.ExtensionMethods;
+using PluginScribens_Word.Checkers.GrammarChecker;
+using PluginScribens_Word.ExtensionMethods;
 
-namespace ScribensMSWord.WPF.Messages
+namespace PluginScribens_Word.WPF.Messages
 {
     public class CheckingCompletedMessage: ViewModelMessage
     {

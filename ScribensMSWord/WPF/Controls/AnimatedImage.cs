@@ -5,7 +5,7 @@ using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 
-namespace ScribensMSWord.WPF.Controls
+namespace PluginScribens_Word.WPF.Controls
 {
     public class AnimatedImage : Image
     {

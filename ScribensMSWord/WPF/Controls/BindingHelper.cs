@@ -1,7 +1,7 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
 
-namespace ScribensMSWord.WPF.Controls
+namespace PluginScribens_Word.WPF.Controls
 {
     public static class BindingHelper
     {

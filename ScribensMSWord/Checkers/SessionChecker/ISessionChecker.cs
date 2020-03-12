@@ -1,6 +1,6 @@
 ﻿using Task = System.Threading.Tasks.Task;
 
-namespace ScribensMSWord.Checkers.SessionChecker
+namespace PluginScribens_Word.Checkers.SessionChecker
 {
     public interface ISessionChecker
     {

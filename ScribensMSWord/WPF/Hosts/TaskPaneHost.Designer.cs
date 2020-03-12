@@ -1,6 +1,6 @@
-﻿using ScribensMSWord.WPF.Views;
+﻿using PluginScribens_Word.WPF.Views;
 
-namespace ScribensMSWord
+namespace PluginScribens_Word
 {
     partial class TaskPaneHost
     {

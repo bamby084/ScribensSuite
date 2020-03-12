@@ -1,4 +1,4 @@
-﻿using ScribensMSWord.ExtensionMethods;
+﻿using PluginScribens_Word.ExtensionMethods;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -6,7 +6,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Linq;
 
-namespace ScribensMSWord.Utils
+namespace PluginScribens_Word.Utils
 {
     public class PluralizationService
     {

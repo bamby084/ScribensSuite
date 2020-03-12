@@ -1,5 +1,5 @@
 ﻿
-namespace ScribensMSWord.Enums
+namespace PluginScribens_Word.Enums
 {
     public enum SolutionMode
     {

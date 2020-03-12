@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ScribensMSWord.ExtensionMethods
+namespace PluginScribens_Word.ExtensionMethods
 {
     public static class DateTimeExtensions
     {

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 
-namespace ScribensMSWord.Utils
+namespace PluginScribens_Word.Utils
 {
     public class Language: IEquatable<Language>
     {
@@ -39,14 +39,14 @@ namespace ScribensMSWord.Utils
                     Abbreviation = "fr",
                     Culture = "fr-FR",
                     IsDefault = true,
-                    IconUri = "pack://application:,,,/ScribensMSWord;component/Resources/french-flag.png",
+                    IconUri = "pack://application:,,,/PluginScribens_Word;component/Resources/french-flag.png",
                 },
                 new Language()
                 {
                     DisplayNameResource = "Language.English",
                     Abbreviation = "en",
                     Culture = "en-US",
-                    IconUri = "pack://application:,,,/ScribensMSWord;component/Resources/england-flag.png",
+                    IconUri = "pack://application:,,,/PluginScribens_Word;component/Resources/england-flag.png",
                 },
             });
 

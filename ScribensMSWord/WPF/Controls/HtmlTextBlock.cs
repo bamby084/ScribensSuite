@@ -8,9 +8,9 @@ using System.Windows.Documents;
 using System.Windows.Markup;
 using System.Windows.Navigation;
 using HTMLConverter;
-using ScribensMSWord.Utils;
+using PluginScribens_Word.Utils;
 
-namespace ScribensMSWord.WPF.Controls
+namespace PluginScribens_Word.WPF.Controls
 {
     public class HtmlTextBlock : TextBlock
     {

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 
 
-namespace ScribensMSWord.ExtensionMethods
+namespace PluginScribens_Word.ExtensionMethods
 {
     public static class ParagraphExtensions
     {

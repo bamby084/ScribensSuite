@@ -1,10 +1,10 @@
 ﻿using System.Globalization;
-using ScribensMSWord.Checkers.IdentityChecker;
-using ScribensMSWord.Properties;
-using ScribensMSWord.Utils;
-using Settings = ScribensMSWord.Utils.Settings;
+using PluginScribens_Word.Checkers.IdentityChecker;
+using PluginScribens_Word.Properties;
+using PluginScribens_Word.Utils;
+using Settings = PluginScribens_Word.Utils.Settings;
 
-namespace ScribensMSWord
+namespace PluginScribens_Word
 {
     internal partial class Globals
     {

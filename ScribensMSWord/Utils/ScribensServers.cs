@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace ScribensMSWord.Utils
+namespace PluginScribens_Word.Utils
 {
     public static class ScribensServers
     {

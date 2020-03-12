@@ -4,9 +4,9 @@ using System;
 using System.Linq;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
-using ScribensMSWord.Utils;
+using PluginScribens_Word.Utils;
 
-namespace ScribensMSWord.ExtensionMethods
+namespace PluginScribens_Word.ExtensionMethods
 {
     public static class DocumentExtensions
     {

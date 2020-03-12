@@ -2,10 +2,10 @@
 using System.Linq;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
-using ScribensMSWord.Checkers.GrammarChecker;
-using ScribensMSWord.Enums;
+using PluginScribens_Word.Checkers.GrammarChecker;
+using PluginScribens_Word.Enums;
 
-namespace ScribensMSWord.ExtensionMethods
+namespace PluginScribens_Word.ExtensionMethods
 {
     public static class GrammarInfoExtensions
     {

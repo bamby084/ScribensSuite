@@ -1,9 +1,9 @@
 ﻿using System.Linq;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using ScribensMSWord.Enums;
+using PluginScribens_Word.Enums;
 
-namespace ScribensMSWord.Checkers.GrammarChecker
+namespace PluginScribens_Word.Checkers.GrammarChecker
 {
     public class GrammarSolutions: Collection<GrammarSolutionModel>
     {

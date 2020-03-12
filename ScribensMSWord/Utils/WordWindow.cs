@@ -1,13 +1,13 @@
 ﻿using Microsoft.Office.Interop.Word;
 using System.Collections.ObjectModel;
 using System.Linq;
-using ScribensMSWord.ExtensionMethods;
+using PluginScribens_Word.ExtensionMethods;
 using System;
 using Microsoft.Office.Tools;
-using ScribensMSWord.Enums;
+using PluginScribens_Word.Enums;
 using Task = System.Threading.Tasks.Task;
 
-namespace ScribensMSWord.Utils
+namespace PluginScribens_Word.Utils
 {
     public interface IWindow
     {

@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace ScribensMSWord.Checkers.GrammarChecker
+namespace PluginScribens_Word.Checkers.GrammarChecker
 {
     public interface IGrammarChecker
     {

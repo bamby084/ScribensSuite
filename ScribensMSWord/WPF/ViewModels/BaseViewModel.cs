@@ -1,10 +1,10 @@
 ﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Linq;
-using ScribensMSWord.Utils;
-using ScribensMSWord.WPF.Messages;
+using PluginScribens_Word.Utils;
+using PluginScribens_Word.WPF.Messages;
 
-namespace ScribensMSWord.WPF.ViewModels
+namespace PluginScribens_Word.WPF.ViewModels
 {
     public class BaseViewModel : INotifyPropertyChanged
     {

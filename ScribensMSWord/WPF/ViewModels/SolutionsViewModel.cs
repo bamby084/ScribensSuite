@@ -1,5 +1,4 @@
 ﻿using Microsoft.Office.Interop.Word;
-using ScribensMSWord.ExtensionMethods;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -7,12 +6,13 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Input;
 using System.Diagnostics;
-using ScribensMSWord.Checkers.GrammarChecker;
-using ScribensMSWord.Enums;
-using ScribensMSWord.Utils;
-using ScribensMSWord.WPF.Messages;
+using PluginScribens_Word.Checkers.GrammarChecker;
+using PluginScribens_Word.Enums;
+using PluginScribens_Word.ExtensionMethods;
+using PluginScribens_Word.Utils;
+using PluginScribens_Word.WPF.Messages;
 
-namespace ScribensMSWord.WPF.ViewModels
+namespace PluginScribens_Word.WPF.ViewModels
 {
     public class SolutionsViewModel: BaseViewModel,
         IMessageHandler<CheckingStartsMessage>, 

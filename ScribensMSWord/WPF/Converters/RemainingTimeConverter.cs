@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Globalization;
 using System.Windows.Data;
-using ScribensMSWord.Checkers.IdentityChecker;
-using ScribensMSWord.Utils;
-using ScribensMSWord.ExtensionMethods;
+using PluginScribens_Word.Checkers.IdentityChecker;
+using PluginScribens_Word.Utils;
+using PluginScribens_Word.ExtensionMethods;
 
-namespace ScribensMSWord.WPF.Converters
+namespace PluginScribens_Word.WPF.Converters
 {
     public class RemainingTimeConverter : IValueConverter
     {

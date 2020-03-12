@@ -2,9 +2,9 @@
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Windows.Input;
-using ScribensMSWord.Utils;
+using PluginScribens_Word.Utils;
 
-namespace ScribensMSWord.WPF.Controls
+namespace PluginScribens_Word.WPF.Controls
 {
     /// <summary>
     /// Interaction logic for SettingsPage.xaml

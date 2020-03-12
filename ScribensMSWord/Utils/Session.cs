@@ -1,7 +1,7 @@
-﻿using ScribensMSWord.Checkers.SessionChecker;
+﻿using PluginScribens_Word.Checkers.SessionChecker;
 using Task = System.Threading.Tasks.Task;
 
-namespace ScribensMSWord.Utils
+namespace PluginScribens_Word.Utils
 {
     public class Session
     {

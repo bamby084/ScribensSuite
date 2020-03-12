@@ -5,12 +5,12 @@ using System.Reflection;
 using System.Runtime.InteropServices;
 using Office = Microsoft.Office.Core;
 using Microsoft.Office.Interop.Word;
-using ScribensMSWord.Enums;
-using ScribensMSWord.Properties;
-using ScribensMSWord.Utils;
-using ScribensMSWord.ExtensionMethods;
+using PluginScribens_Word.Enums;
+using PluginScribens_Word.Properties;
+using PluginScribens_Word.Utils;
+using PluginScribens_Word.ExtensionMethods;
 
-namespace ScribensMSWord
+namespace PluginScribens_Word
 {
     [ComVisible(true)]
     public class AddinRibbon : Office.IRibbonExtensibility
@@ -29,7 +29,7 @@ namespace ScribensMSWord
 
         public string GetCustomUI(string ribbonID)
         {
-            return GetResourceText("ScribensMSWord.AddinRibbon.xml");
+            return GetResourceText("PluginScribens_Word.AddinRibbon.xml");
         }
 
         #endregion

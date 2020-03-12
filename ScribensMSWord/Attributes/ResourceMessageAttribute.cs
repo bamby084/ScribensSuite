@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ScribensMSWord.Attributes
+namespace PluginScribens_Word.Attributes
 {
     [AttributeUsage(AttributeTargets.Field)]
     public class ResourceMessageAttribute : Attribute

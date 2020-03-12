@@ -5,11 +5,11 @@ using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
-using ScribensMSWord.Enums;
-using ScribensMSWord.ExtensionMethods;
-using ScribensMSWord.Utils;
+using PluginScribens_Word.Enums;
+using PluginScribens_Word.Utils;
+using PluginScribens_Word.ExtensionMethods;
 
-namespace ScribensMSWord.Checkers.GrammarChecker
+namespace PluginScribens_Word.Checkers.GrammarChecker
 {
     public class GrammarSolutionModel : IDisposable, INotifyPropertyChanged, IEquatable<GrammarSolutionModel>
     {

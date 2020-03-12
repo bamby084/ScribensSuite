@@ -1,9 +1,9 @@
 ﻿using Microsoft.Office.Interop.Word;
 using System;
 using System.Threading;
-using ScribensMSWord.Utils;
+using PluginScribens_Word.Utils;
 
-namespace ScribensMSWord.ExtensionMethods
+namespace PluginScribens_Word.ExtensionMethods
 {
     public static class OfficeExtensions
     {

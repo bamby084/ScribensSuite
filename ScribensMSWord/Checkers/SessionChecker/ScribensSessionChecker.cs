@@ -5,9 +5,9 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web;
-using ScribensMSWord.Utils;
+using PluginScribens_Word.Utils;
 
-namespace ScribensMSWord.Checkers.SessionChecker
+namespace PluginScribens_Word.Checkers.SessionChecker
 {
     public class ScribensSessionChecker : ISessionChecker
     {

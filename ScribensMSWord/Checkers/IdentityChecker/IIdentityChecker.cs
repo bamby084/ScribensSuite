@@ -1,7 +1,7 @@
 ﻿
 using System.Threading.Tasks;
 
-namespace ScribensMSWord.Checkers.IdentityChecker
+namespace PluginScribens_Word.Checkers.IdentityChecker
 {
     public interface IIdentityChecker
     {

@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace ScribensMSWord.WPF.Views
+namespace PluginScribens_Word.WPF.Views
 {
     /// <summary>
     /// Interaction logic for ExceedTrialErrorView.xaml

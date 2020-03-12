@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29123.88
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{6E98674C-043B-40AC-9C95-AF8A54D5EAFD}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01.src", "01.src", "{6E98674C-043B-40AC-9C95-AF8A54D5EAFD}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "setup", "setup", "{E6E917A2-A7B1-48D7-A03F-80B47FBBDD96}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "02.setup", "02.setup", "{E6E917A2-A7B1-48D7-A03F-80B47FBBDD96}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PluginScribens_Word", "ScribensMSWord\PluginScribens_Word.csproj", "{747A7594-67D8-4EE3-84A9-8E7ECD0D18AB}"
 EndProject

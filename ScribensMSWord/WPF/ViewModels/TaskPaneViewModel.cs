@@ -1,13 +1,13 @@
 ﻿using Microsoft.Office.Interop.Word;
 using System.Diagnostics;
-using ScribensMSWord.Checkers.GrammarChecker;
-using ScribensMSWord.Enums;
-using ScribensMSWord.Utils;
-using ScribensMSWord.WPF.Messages;
+using PluginScribens_Word.Checkers.GrammarChecker;
+using PluginScribens_Word.Checkers.GrammarChecker.Scribens;
+using PluginScribens_Word.Utils;
+using PluginScribens_Word.WPF.Messages;
+using PluginScribens_Word.Enums;
 using Task = System.Threading.Tasks.Task;
-using ScribensMSWord.Checkers.GrammarChecker.Scribens;
 
-namespace ScribensMSWord.WPF.ViewModels
+namespace PluginScribens_Word.WPF.ViewModels
 {
     public class TaskPaneViewModel: BaseViewModel,
         IMessageHandler<LogInMessage>, 
@@ -113,7 +113,6 @@ namespace ScribensMSWord.WPF.ViewModels
             _backgroundChecker.OnStartChecking += OnBackgroundStartChecking;
             _backgroundChecker.OnCheckCompleted += OnBackgroundCheckCompleted;
             _backgroundChecker.OnLimCharExceeded += OnBackgroundLimCharExceeded;
-            _backgroundChecker.OnScrollbarStabilized += OnScrollbarStabilized;
             _backgroundChecker.Start();
         }
 
@@ -152,11 +151,6 @@ namespace ScribensMSWord.WPF.ViewModels
         private void OnBackgroundLimCharExceeded(object sender, LimCharExceededEventArgs e)
         {
             Messenger.SendMessage(new LimCharExceededMessage(), this);
-        }
-
-        private void OnScrollbarStabilized(object sender, ScrollbarStabilizedEventArgs e)
-        {
-            Messenger.SendMessage(new ScrollbarStabilizedMessage(), this);
         }
         #endregion
 

@@ -1,6 +1,6 @@
 ﻿using Microsoft.Office.Interop.Word;
 using System.Net;
-using ScribensMSWord.ExtensionMethods;
+using PluginScribens_Word.ExtensionMethods;
 using log4net.Repository.Hierarchy;
 using log4net;
 using log4net.Layout;
@@ -10,12 +10,12 @@ using log4net.Core;
 using Task = System.Threading.Tasks.Task;
 using Timer = System.Timers.Timer;
 using System.Timers;
-using ScribensMSWord.Checkers.IdentityChecker;
-using ScribensMSWord.Enums;
-using ScribensMSWord.Properties;
-using ScribensMSWord.Utils;
+using PluginScribens_Word.Checkers.IdentityChecker;
+using PluginScribens_Word.Enums;
+using PluginScribens_Word.Properties;
+using PluginScribens_Word.Utils;
 
-namespace ScribensMSWord
+namespace PluginScribens_Word
 {
     public partial class ThisAddIn
     {

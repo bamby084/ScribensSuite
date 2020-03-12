@@ -6,10 +6,10 @@ using System.Web;
 using Newtonsoft.Json;
 using System;
 using System.Linq;
-using ScribensMSWord.Utils;
-using ScribensMSWord.ExtensionMethods;
+using PluginScribens_Word.Utils;
+using PluginScribens_Word.ExtensionMethods;
 
-namespace ScribensMSWord.Checkers.GrammarChecker.Scribens
+namespace PluginScribens_Word.Checkers.GrammarChecker.Scribens
 {
     public class ScribensGrammarChecker : IGrammarChecker
     {
