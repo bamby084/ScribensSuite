@@ -1,0 +1,28 @@
+﻿<Window x:Class="SetupUI.Views.MainView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:SetupUI.Views"
+             xmlns:views="clr-namespace:SetupUI.Views"
+             xmlns:viewModels="clr-namespace:SetupUI.ViewModels"
+             WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Title="Plugin Scribens pour Microsoft Office"
+             mc:Ignorable="d" Width="600" Height="400">
+    <Window.Resources>
+        <DataTemplate DataType="{x:Type viewModels:WelcomeViewModel}">
+            <views:WelcomeView/>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type viewModels:LicenseAgreementViewModel}">
+            <views:LicenseAgreementView/>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type viewModels:SetupViewModel}">
+            <views:SetupView/>
+        </DataTemplate>
+    </Window.Resources>
+
+    <Grid>
+        <ContentControl Content="{Binding Path=ActiveViewModel}"/>
+    </Grid>
+</Window>
