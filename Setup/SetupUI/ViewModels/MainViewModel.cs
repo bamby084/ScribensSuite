@@ -4,9 +4,10 @@ using SetupUI.Events;
 namespace SetupUI.ViewModels
 {
     public class MainViewModel: BaseViewModel,
-        IEventHandler<StartSetupEvent>,
-        IEventHandler<CancelSetupEvent>,
-        IEventHandler<UserAcceptLicenseAgreementEvent>
+        IEventHandler<BeginEvent>,
+        IEventHandler<ExitEvent>,
+        IEventHandler<CancelEvent>,
+        IEventHandler<AcceptLicenseAgreementEvent>
     {
         #region Properties
         private BaseViewModel _activeViewModel;
@@ -26,59 +27,40 @@ namespace SetupUI.ViewModels
         public BootstrapperApplication Bootstrapper { get; private set; }
         #endregion
 
+        #region ctors
         public MainViewModel(BootstrapperApplication bootstrapper)
         {
             Bootstrapper = bootstrapper;
-            Bootstrapper.ApplyComplete += OnApplyComplete;
-            Bootstrapper.DetectPackageComplete += OnDetectPackageComplete;
-            Bootstrapper.PlanComplete += OnPlanComplete;
-            Bootstrapper.ExecuteProgress += OnExecuteProgress;
-            Bootstrapper.CacheAcquireProgress += OnCacheAcquireProgress;
-
             ActiveViewModel = new WelcomeViewModel();
-        }
-
-        #region Bootstrapper Events
-        private void OnCacheAcquireProgress(object sender, CacheAcquireProgressEventArgs e)
-        {
-            
-        }
-
-        private void OnExecuteProgress(object sender, ExecuteProgressEventArgs e)
-        {
-            
-        }
-
-        private void OnPlanComplete(object sender, PlanCompleteEventArgs e)
-        {
-            
-        }
-
-        private void OnDetectPackageComplete(object sender, DetectPackageCompleteEventArgs e)
-        {
-        }
-
-        private void OnApplyComplete(object sender, ApplyCompleteEventArgs e)
-        {
-            
         }
         #endregion
 
         #region Event Handlers
-        public void HandleEvent(StartSetupEvent @event)
+        public void HandleEvent(BeginEvent @event)
         {
-            ActiveViewModel = new LicenseAgreementViewModel();
+            if (@event.FromScreen == SetupScreen.Welcome)
+                ActiveViewModel = new LicenseAgreementViewModel();
+            else if(@event.FromScreen == SetupScreen.ProductSelection)
+                ActiveViewModel = new SetupViewModel(Bootstrapper);
         }
 
-        public void HandleEvent(CancelSetupEvent @event)
+        public void HandleEvent(ExitEvent @event)
         {
             Bootstrapper.Engine.Quit(1602);//user exit
         }
 
-        public void HandleEvent(UserAcceptLicenseAgreementEvent @event)
+        public void HandleEvent(AcceptLicenseAgreementEvent @event)
         {
-            ActiveViewModel = new SetupViewModel();
+            ActiveViewModel = new SelectProductViewModel();
         }
+
+        public void HandleEvent(CancelEvent @event)
+        {
+            ((Bootstrapper)Bootstrapper).BootstrapDispatcher.InvokeShutdown();
+        }
+        #endregion
+
+        #region Methods
         #endregion
     }
 }

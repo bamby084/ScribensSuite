@@ -9,7 +9,6 @@
       <ComponentGroupRef Id="ProductComponents" />
     </Feature>
 
-    <UIRef Id="SetupDialogUI"/>
   </Product>
 
   <Fragment>

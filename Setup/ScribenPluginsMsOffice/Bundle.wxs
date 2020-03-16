@@ -9,7 +9,7 @@
     <WixVariable Id="WixMbaPrereqLicenseUrl" Value=""/>
     <WixVariable Id="WixMbaPrereqPackageId" Value=""/> 
 		<Chain>
-      <MsiPackage SourceFile="$(var.SolutionDir)Setup\Output\ScribensMsWordPlugin.msi"/>
+      <MsiPackage SourceFile="$(var.SolutionDir)Setup\Output\ScribensMsOfficePlugin.msi" Id="ScribensInstallationPackageId" Cache="yes" Visible="no"/>
     </Chain>
 	</Bundle>
 </Wix>

@@ -1,5 +1,4 @@
-﻿
-using System.Windows.Input;
+﻿using System.Windows.Input;
 using SetupUI.Events;
 
 namespace SetupUI.ViewModels
@@ -20,12 +19,12 @@ namespace SetupUI.ViewModels
 
         private void OnAccept(object param)
         {
-            EventManager.PublishEvent(new UserAcceptLicenseAgreementEvent());
+            EventManager.PublishEvent(new AcceptLicenseAgreementEvent());
         }
 
         private void OnCancel(object param)
         {
-            EventManager.PublishEvent(new CancelSetupEvent());
+            EventManager.PublishEvent(new ExitEvent());
         }
         #endregion
     }

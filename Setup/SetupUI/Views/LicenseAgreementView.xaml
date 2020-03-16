@@ -24,10 +24,10 @@
                      Foreground="{StaticResource TextForegroundColor}" VerticalScrollBarVisibility="Auto">
         </RichTextBox>
 
-        <Grid Grid.Row="2" Background="{StaticResource FooterBackgroundColor}" HorizontalAlignment="Stretch">
+        <Grid Grid.Row="2" Background="{StaticResource FooterBackgroundColor}">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                <Button Content="I Accept" HorizontalAlignment="Right" Width="100" Command="{Binding Path=AcceptCommand}"/>
-                <Button Content="Cancel" HorizontalAlignment="Right" Margin="10 0 10 0" Command="{Binding Path=CancelCommand}"/>
+                <Button Content="Accepter" HorizontalAlignment="Right" Width="100" Command="{Binding Path=AcceptCommand}"/>
+                <Button Content="Annuler" HorizontalAlignment="Right" Margin="10 0 10 0" Command="{Binding Path=CancelCommand}"/>
             </StackPanel>
         </Grid>
     </Grid>

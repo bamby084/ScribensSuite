@@ -9,9 +9,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "02.setup", "02.setup", "{E6
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PluginScribens_Word", "ScribensMSWord\PluginScribens_Word.csproj", "{747A7594-67D8-4EE3-84A9-8E7ECD0D18AB}"
 EndProject
-Project("{930C7802-8A8C-48F9-8165-68863BCCD9DD}") = "WordPluginSetup", "Setup\PluginScribens_Word.Setup\WordPluginSetup.wixproj", "{E76A2E14-0426-4C45-874C-2CB01FAA7225}"
+Project("{930C7802-8A8C-48F9-8165-68863BCCD9DD}") = "SetupMsi", "Setup\PluginScribens_Word.Setup\SetupMsi.wixproj", "{E76A2E14-0426-4C45-874C-2CB01FAA7225}"
 EndProject
-Project("{930C7802-8A8C-48F9-8165-68863BCCD9DD}") = "ScribenPluginsMsOffice", "Setup\ScribenPluginsMsOffice\ScribenPluginsMsOffice.wixproj", "{CBB71511-264C-4B17-B718-49266867C411}"
+Project("{930C7802-8A8C-48F9-8165-68863BCCD9DD}") = "SetupBundle", "Setup\ScribenPluginsMsOffice\SetupBundle.wixproj", "{CBB71511-264C-4B17-B718-49266867C411}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SetupUI", "Setup\SetupUI\SetupUI.csproj", "{7CAC6CC0-43A2-44F0-AECC-A75090B13423}"
 EndProject

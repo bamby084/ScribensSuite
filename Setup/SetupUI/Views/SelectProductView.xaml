@@ -5,8 +5,70 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:SetupUI.Views"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-            
+             d:DesignHeight="400" d:DesignWidth="600">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/SetupUI;component/Views/AppStyle.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+    <Grid Background="{StaticResource BackgroundColor}">
+        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+            <RowDefinition Height="60"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="Scribens sera installe sur" Grid.Row="1" Margin="30 0 0 15"
+                   FontSize="40" Foreground="{StaticResource TextForegroundColor}"/>
+
+        <Grid Grid.Row="2" Margin="50 0 0 0">
+            <Grid.Resources>
+                <Style TargetType="{x:Type TextBlock}">
+                    <Setter Property="Foreground" Value="{StaticResource TextForegroundColor}"/>
+                    <Setter Property="VerticalAlignment" Value="Center"/>
+                    <Setter Property="Margin" Value="5 0 0 0"/>
+                    <Setter Property="FontSize" Value="14"/>
+                </Style>
+            </Grid.Resources>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <StackPanel Orientation="Horizontal">
+                <Image Source="../Resources/Images/word-2019-48.png" Width="32"/>
+                <TextBlock Text="Microsoft Word®"/>
+            </StackPanel>
+
+            <StackPanel Grid.Row="1" Orientation="Horizontal">
+                <Image Source="../Resources/Images/excel-2019-48.png" Width="32"/>
+                <TextBlock Text="Microsoft Excel®"/>
+            </StackPanel>
+
+            <StackPanel Grid.Row="2" Orientation="Horizontal">
+                <Image Source="../Resources/Images/outlook-2019-48.png" Width="32"/>
+                <TextBlock Text="Microsoft Outlook®"/>
+            </StackPanel>
+
+            <StackPanel Grid.Row="3" Orientation="Horizontal">
+                <Image Source="../Resources/Images/powerpoint-2019-48.png" Width="32"/>
+                <TextBlock Text="Microsoft PowerPoint®"/>
+            </StackPanel>
+        </Grid>
+
+        <Grid Grid.Row="3" Background="{StaticResource FooterBackgroundColor}">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <Button Content="Installer" HorizontalAlignment="Right" Width="100" Command="{Binding Path=InstallCommand}"/>
+                <Button Content="Annuler" HorizontalAlignment="Right" Margin="10 0 10 0" Command="{Binding Path=CancelCommand}"/>
+            </StackPanel>
+        </Grid>
     </Grid>
 </UserControl>

@@ -22,13 +22,15 @@
            <RowDefinition Height="60"/>
        </Grid.RowDefinitions>
 
-        <Image Source="../Images/logo_red.png" HorizontalAlignment="Right" Margin="0 0 10 0"/>
-        <TextBlock Text="Welcome to Scribens" Grid.Row="1" HorizontalAlignment="Center" FontSize="50" Foreground="{StaticResource TextForegroundColor}"/>
-        <TextBlock Grid.Row="2" TextWrapping="Wrap" FontSize="18" Margin="60 10 40 0" Foreground="{StaticResource TextForegroundColor}"
-            Text="Scribens corrects over 250 types of grammar mistakes and detects stylistic elements such as repetitions, run-on sentences, redundancies, and more. This spellchecker even suggests synonyms for every word."/>
+        <Image Source="../Resources/Images/logo_128.png" HorizontalAlignment="Right" />
+        <TextBlock Text="Scribens pour Microsoft Office" Grid.Row="1" HorizontalAlignment="Center" 
+                   TextAlignment="Center" FontSize="40" Foreground="{StaticResource TextForegroundColor}"/>
+        <TextBlock Grid.Row="2" TextWrapping="Wrap" FontSize="18" HorizontalAlignment="Center" 
+                   TextAlignment="Center" Foreground="{StaticResource TextForegroundColor}" Margin="0 10 0 0"
+                   Text="Utilisez Scribens directement dans Word, Outlook, Excel et Powerpoint. Bénéficiez d'un haut niveau de correction orthographique pour produire des documents de qualité"/>
 
         <Grid Grid.Row="3" Background="{StaticResource FooterBackgroundColor}">
-            <Button HorizontalAlignment="Center" Content="Start" Background="{StaticResource ButtonBackgroundColor}"
+            <Button HorizontalAlignment="Center" Content="Démarrer" Background="{StaticResource ButtonBackgroundColor}"
                     Command="{Binding Path=StartCommand}"/>
         </Grid>
     </Grid>

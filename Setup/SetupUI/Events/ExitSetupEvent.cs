@@ -1,7 +1,7 @@
 ﻿
 namespace SetupUI.Events
 {
-    public class CancelSetupEvent: EventBase
+    public class ExitEvent: EventBase
     {
     }
 }

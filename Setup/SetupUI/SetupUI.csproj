@@ -48,12 +48,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Bootstrapper.cs" />
-    <Compile Include="Events\CancelSetupEvent.cs" />
+    <Compile Include="Events\CancelEvent.cs" />
+    <Compile Include="Events\ExitSetupEvent.cs" />
     <Compile Include="Events\EventBase.cs" />
     <Compile Include="Events\EventManager.cs" />
     <Compile Include="Events\IEventHandler.cs" />
-    <Compile Include="Events\StartSetupEvent.cs" />
-    <Compile Include="Events\UserAcceptLicenseAgreementEvent.cs" />
+    <Compile Include="Events\BeginEvent.cs" />
+    <Compile Include="Events\AcceptLicenseAgreementEvent.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resource.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -64,6 +65,7 @@
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="ViewModels\LicenseAgreementViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
+    <Compile Include="ViewModels\SelectProductViewModel.cs" />
     <Compile Include="ViewModels\SetupViewModel.cs" />
     <Compile Include="ViewModels\WelcomeViewModel.cs" />
     <Compile Include="Views\LicenseAgreementView.xaml.cs">
@@ -109,9 +111,6 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\logo_red.png" />
-  </ItemGroup>
-  <ItemGroup>
     <EmbeddedResource Include="Properties\Resource.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resource.Designer.cs</LastGenOutput>
@@ -119,6 +118,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\License.rtf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\excel-2019-48.png" />
+    <Resource Include="Resources\Images\outlook-2019-48.png" />
+    <Resource Include="Resources\Images\powerpoint-2019-48.png" />
+    <Resource Include="Resources\Images\word-2019-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\logo_128.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

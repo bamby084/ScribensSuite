@@ -4,9 +4,37 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:SetupUI.Views"
-             mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-            
+             mc:Ignorable="d" Loaded="OnLoaded"
+             d:DesignHeight="400" d:DesignWidth="600">
+
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/SetupUI;component/Views/AppStyle.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+    <Grid Background="{StaticResource BackgroundColor}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="15"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="3"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="60"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="Progression de l'installation" Grid.Row="1" FontSize="40" Margin="30 0 0 0" Foreground="{StaticResource TextForegroundColor}"/>
+        <ProgressBar Grid.Row="3" Height="20" Value="{Binding Path=ProgressPercentage, FallbackValue=50}" 
+                     Margin="30 0 30 0" Foreground="{StaticResource ButtonBackgroundColor}" Opacity="0.6"/>
+        <TextBlock Text="{Binding Path=Status, FallbackValue=[Status]}" Grid.Row="5" Margin="30 0 0 0"/>
+
+        <Grid Grid.Row="7" Background="{StaticResource FooterBackgroundColor}">
+            <Button Content="Annuler" HorizontalAlignment="Right" Margin="10 0 10 0" Command="{Binding Path=CancelCommand}"/>
+        </Grid>
     </Grid>
+
 </UserControl>

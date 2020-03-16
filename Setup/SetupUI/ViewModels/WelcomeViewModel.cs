@@ -14,7 +14,7 @@ namespace SetupUI.ViewModels
 
         private void OnStart(object param)
         {
-            EventManager.PublishEvent(new StartSetupEvent());
+            EventManager.PublishEvent(new BeginEvent() {FromScreen = SetupScreen.Welcome});
         }
     }
 }
