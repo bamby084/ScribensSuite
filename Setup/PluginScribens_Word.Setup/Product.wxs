@@ -3,10 +3,11 @@
   <Product Id="*" Name="Plugin Scribens pour Microsoft Office" Language="1033" Version="1.0.0.0" Manufacturer="Scribens" UpgradeCode="ad4e2889-2e99-4be4-93e4-a02b4165e626">
     <Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" />
     <MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
-    <MediaTemplate />
+    <Media Id="1" Cabinet="ScribensMSWordPlugins.cab" EmbedCab="yes"/>
 
     <Feature Id="ProductFeature" Title="Plugin Scribens pour Microsoft Office" Level="1">
       <ComponentGroupRef Id="ProductComponents" />
+      <ComponentRef Id="WordRegistryComponent"/>
     </Feature>
 
   </Product>
@@ -15,18 +16,67 @@
     <Directory Id="TARGETDIR" Name="SourceDir">
       <Directory Id="ProgramFilesFolder">
         <Directory Id="INSTALLFOLDER" Name="Scribens">
-          <Directory Id="MSWORD" Name="MS Word" />
+          <Directory Id="MSWORD" Name="MS Word">
+          </Directory>
         </Directory>
+        
+        <Component Id="WordRegistryComponent">
+          <RegistryValue Id="Word_RegKey_FriendlyName" Root="HKCU"
+                         Key="Software\Microsoft\Office\Word\AddIns\Scribens"
+                         Name="FriendlyName"
+                         Value="Scribens"
+                         Type="string"/>
+          <RegistryValue Id="Word_RegKey_Description" Root="HKCU"
+                        Key="Software\Microsoft\Office\Word\AddIns\Scribens"
+                        Name="Description"
+                        Value="Scribens add-in for MS Word to check spelling"
+                        Type="string"/>
+          <RegistryValue Id="Word_RegKey_Manifest" Root="HKCU"
+                         Key="Software\Microsoft\Office\Word\AddIns\Scribens"
+                         Name="Manifest" Value="[INSTALLFOLDER]MS Word\PluginScribens_Word.vsto|vstolocal"
+                         Type="string" KeyPath="yes" />
+          <RegistryValue Id="Word_RegKey_LoadBehavior" Root="HKCU"
+                         Key="Software\Microsoft\Office\Word\AddIns\Scribens"
+                         Name="LoadBehavior" Value="3"
+                         Type="integer"/>
+          <RegistryValue Id="RegKey_RootFolder" Root="HKCU"
+                        Key="Software\Microsoft\Office\Word\AddIns\Scribens"
+                        Name="RootFolder" Value=""
+                        Type="string"/>
+        </Component>
       </Directory>
     </Directory>
   </Fragment>
 
   <Fragment>
     <ComponentGroup Id="ProductComponents" Directory="INSTALLFOLDER">
-      <!-- TODO: Remove the comments around this Component element and the ComponentRef below in order to add resources to this installer. -->
-      <!-- <Component Id="ProductComponent"> -->
-      <!-- TODO: Insert files, registry keys, and other resources here. -->
-      <!-- </Component> -->
+      <ComponentRef Id="WordComponents"/>
+      <ComponentRef Id="WordLocalization"/>
     </ComponentGroup>
+
+    <DirectoryRef Id="MSWORD">
+      <Component Id="WordComponents" DiskId="1" KeyPath="yes" Guid="21E1C770-51ED-444D-936F-1C9DB7EFE336">
+        <File Source="$(var.PluginScribens_Word.TargetDir)" Name="Microsoft.Office.Tools.Common.v4.0.Utilities.dll"/>
+        <File Source="$(var.PluginScribens_Word.TargetDir)" Name="PluginScribens_Word.dll"/>
+        <File Source="$(var.PluginScribens_Word.TargetDir)" Name="PluginScribens_Word.dll.manifest"/>
+        <File Source="$(var.PluginScribens_Word.TargetDir)" Name="PluginScribens_Word.dll.config"/>
+        <File Source="$(var.PluginScribens_Word.TargetDir)" Name="PluginScribens_Word.vsto"/>
+        <File Source="$(var.PluginScribens_Word.TargetDir)" Name="HtmlToXamlConverter.dll"/>
+        <File Source="$(var.PluginScribens_Word.TargetDir)" Name="log4net.dll"/>
+        <File Source="$(var.PluginScribens_Word.TargetDir)" Name="Newtonsoft.Json.dll"/>
+        <File Source="$(var.PluginScribens_Word.TargetDir)" Name="Xceed.Wpf.Toolkit.dll"/>
+        <File Source="$(var.PluginScribens_Word.TargetDir)" Name="Xceed.Wpf.AvalonDock.dll"/>
+        <File Source="$(var.PluginScribens_Word.TargetDir)" Name="Xceed.Wpf.AvalonDock.Themes.Aero.dll"/>
+        <File Source="$(var.PluginScribens_Word.TargetDir)" Name="Xceed.Wpf.AvalonDock.Themes.Metro.dll"/>
+        <File Source="$(var.PluginScribens_Word.TargetDir)" Name="Xceed.Wpf.AvalonDock.Themes.VS2010.dll"/>
+      </Component>
+
+      <Directory Id="FrenchResources" Name="fr">
+        <Component Id="WordLocalization" KeyPath="yes" Guid="3B744B37-7A88-4BEA-A891-928AEA3AF37A">
+          <File Source="$(var.PluginScribens_Word.TargetDir)fr\" Name="PluginScribens_Word.resources.dll" />
+          <File Source="$(var.PluginScribens_Word.TargetDir)fr\" Name="Xceed.Wpf.AvalonDock.resources.dll"/>
+        </Component>
+      </Directory>
+    </DirectoryRef>
   </Fragment>
 </Wix>

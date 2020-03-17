@@ -1,4 +1,6 @@
-﻿using System.Windows.Input;
+﻿using System;
+using System.Windows;
+using System.Windows.Input;
 using Microsoft.Tools.WindowsInstallerXml.Bootstrapper;
 using SetupUI.Events;
 
@@ -50,7 +52,7 @@ namespace SetupUI.ViewModels
             Bootstrapper.PlanComplete += OnPlanComplete;
             Bootstrapper.ExecuteProgress += OnExecuteProgress;
             Bootstrapper.CacheAcquireProgress += OnCacheAcquireProgress;
-
+            MessageBox.Show("Begin Install");
             Bootstrapper.Engine.Plan(LaunchAction.Install);
         }
         #endregion
@@ -85,15 +87,21 @@ namespace SetupUI.ViewModels
 
         private void OnPlanComplete(object sender, PlanCompleteEventArgs e)
         {
-            
+            if(e.Status >= 0)
+            {
+                Bootstrapper.Engine.Apply(IntPtr.Zero);
+            }
         }
 
         private void OnDetectPackageComplete(object sender, DetectPackageCompleteEventArgs e)
         {
+            MessageBox.Show(e.PackageId);
+            MessageBox.Show(e.State.ToString());
         }
 
         private void OnApplyComplete(object sender, ApplyCompleteEventArgs e)
         {
+            ProgressPercentage = 100;
         }
         #endregion
 

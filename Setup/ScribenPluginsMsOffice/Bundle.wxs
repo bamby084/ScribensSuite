@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
-	<Bundle Name="Plugin Scribens pour Microsoft Office" Version="1.0.0.0" Manufacturer="Scribens" UpgradeCode="cbb71511-264c-4b17-b718-49266867c411">
+	<Bundle Name="Plugin Scribens pour Microsoft Office" Version="1.0.0.0" Manufacturer="Scribens" 
+          IconSourceFile="scribens.ico"
+          UpgradeCode="cbb71511-264c-4b17-b718-49266867c411">
     <BootstrapperApplicationRef Id="ManagedBootstrapperApplicationHost">
       <Payload SourceFile="$(var.SolutionDir)Setup\Output\BootstrapperCore.config"/>
       <Payload SourceFile="$(var.SolutionDir)Setup\Output\SetupUI.dll"/>
@@ -9,7 +11,7 @@
     <WixVariable Id="WixMbaPrereqLicenseUrl" Value=""/>
     <WixVariable Id="WixMbaPrereqPackageId" Value=""/> 
 		<Chain>
-      <MsiPackage SourceFile="$(var.SolutionDir)Setup\Output\ScribensMsOfficePlugin.msi" Id="ScribensInstallationPackageId" Cache="yes" Visible="no"/>
+      <MsiPackage SourceFile="$(var.SolutionDir)Setup\Output\ScribensMsOfficePlugin.msi"/>
     </Chain>
 	</Bundle>
 </Wix>
