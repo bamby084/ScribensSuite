@@ -1,4 +1,5 @@
 ﻿using System.Windows.Input;
+using SetupUI.Enums;
 using SetupUI.Events;
 
 namespace SetupUI.ViewModels
@@ -19,12 +20,12 @@ namespace SetupUI.ViewModels
 
         private void OnAccept(object param)
         {
-            EventManager.PublishEvent(new AcceptLicenseAgreementEvent());
+            EventManager.PublishEvent(new InstallEvent(){Action = SetupAction.SelectProducts});
         }
 
         private void OnCancel(object param)
         {
-            EventManager.PublishEvent(new ExitEvent());
+            EventManager.PublishEvent(new ExitInstallationEvent());
         }
         #endregion
     }

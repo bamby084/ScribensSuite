@@ -1,0 +1,78 @@
+﻿<UserControl x:Class="SetupUI.Views.UnInstallationConfirmView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:SetupUI.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="400" d:DesignWidth="600">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/SetupUI;component/Views/AppStyle.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+    <Grid Background="{StaticResource BackgroundColor}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="5"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="60"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="Désinstaller Scribens" Grid.Row="1" Margin="30 0 0 0"
+                   Foreground="{StaticResource TextForegroundColor}" FontSize="40" TextWrapping="Wrap" TextAlignment="Left"/>
+        <TextBlock Grid.Row="3" Text="Cela désinstallera Scribens pour ces produits"
+                 Foreground="{StaticResource TextForegroundColor}" FontSize="16" Margin="40 0 0 0"/>
+
+        <Grid Grid.Row="5" Margin="50 0 0 0">
+            <Grid.Resources>
+                <Style TargetType="{x:Type TextBlock}">
+                    <Setter Property="Foreground" Value="{StaticResource TextForegroundColor}"/>
+                    <Setter Property="VerticalAlignment" Value="Center"/>
+                    <Setter Property="Margin" Value="5 0 0 0"/>
+                    <Setter Property="FontSize" Value="14"/>
+                </Style>
+            </Grid.Resources>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <StackPanel Orientation="Horizontal">
+                <Image Source="../Resources/Images/word-2019-48.png" Width="32"/>
+                <TextBlock Text="Microsoft Word®"/>
+            </StackPanel>
+
+            <StackPanel Grid.Row="1" Orientation="Horizontal">
+                <Image Source="../Resources/Images/excel-2019-48.png" Width="32"/>
+                <TextBlock Text="Microsoft Excel®"/>
+            </StackPanel>
+
+            <StackPanel Grid.Row="2" Orientation="Horizontal">
+                <Image Source="../Resources/Images/outlook-2019-48.png" Width="32"/>
+                <TextBlock Text="Microsoft Outlook®"/>
+            </StackPanel>
+
+            <StackPanel Grid.Row="3" Orientation="Horizontal">
+                <Image Source="../Resources/Images/powerpoint-2019-48.png" Width="32"/>
+                <TextBlock Text="Microsoft PowerPoint®"/>
+            </StackPanel>
+        </Grid>
+
+        <Grid Grid.Row="6" Background="{StaticResource FooterBackgroundColor}">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <Button Content="D'accord" HorizontalAlignment="Right" Width="100" Command="{Binding Path=UnInstallCommand}"/>
+                <Button Content="Annuler" HorizontalAlignment="Right" Margin="10 0 10 0" Command="{Binding Path=CancelCommand}"/>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</UserControl>

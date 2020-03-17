@@ -6,7 +6,7 @@
     <ProductVersion>3.10</ProductVersion>
     <ProjectGuid>cbb71511-264c-4b17-b718-49266867c411</ProjectGuid>
     <SchemaVersion>2.0</SchemaVersion>
-    <OutputName>ScribenMsOfficePluginsSetup</OutputName>
+    <OutputName>ScribensMSOfficePluginSetup</OutputName>
     <OutputType>Bundle</OutputType>
     <Name>SetupBundle</Name>
   </PropertyGroup>

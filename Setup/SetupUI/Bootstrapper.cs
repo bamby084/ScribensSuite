@@ -14,11 +14,11 @@ namespace SetupUI
             this.Engine.Log(LogLevel.Verbose, "Launching custom UI");
             BootstrapDispatcher = Dispatcher.CurrentDispatcher;
             var mainViewModel = new MainViewModel(this);
-            this.Engine.Detect();
             var mainView = new MainView();
             mainView.DataContext = mainViewModel;
             mainView.Closed += (sender, e) => BootstrapDispatcher.InvokeShutdown();
             mainView.Show();
+            mainViewModel.Bootstrapper.Engine.Detect();
             Dispatcher.Run();
             this.Engine.Quit(0);
         }

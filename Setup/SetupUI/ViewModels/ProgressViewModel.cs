@@ -1,15 +1,16 @@
 ﻿using System;
-using System.Windows;
 using System.Windows.Input;
 using Microsoft.Tools.WindowsInstallerXml.Bootstrapper;
+using SetupUI.Enums;
 using SetupUI.Events;
 
 namespace SetupUI.ViewModels
 {
-    public class SetupViewModel: BaseViewModel
+    public class ProgressViewModel: BaseViewModel
     {
         #region Properties
         private bool _isCancel = false;
+        private SetupAction _action;
 
         private int _progressPercentage;
         public int ProgressPercentage
@@ -37,23 +38,46 @@ namespace SetupUI.ViewModels
                     NotifyPropertyChanged();
                 }
             }
+        }
+
+        private string _title;
+        public string Title
+        {
+            get => _title;
+            set
+            {
+                if (value != _title)
+                {
+                    _title = value;
+                    NotifyPropertyChanged();
+                }
+            }
         } 
 
         public BootstrapperApplication Bootstrapper { get; set; }
         #endregion
 
         #region ctors
-        public SetupViewModel(BootstrapperApplication bootstrapper)
+        public ProgressViewModel(BootstrapperApplication bootstrapper, SetupAction action)
         {
             CancelCommand = new RelayCommand(Cancel);
             Bootstrapper = bootstrapper;
             Bootstrapper.ApplyComplete += OnApplyComplete;
-            Bootstrapper.DetectPackageComplete += OnDetectPackageComplete;
             Bootstrapper.PlanComplete += OnPlanComplete;
             Bootstrapper.ExecuteProgress += OnExecuteProgress;
-            Bootstrapper.CacheAcquireProgress += OnCacheAcquireProgress;
-            MessageBox.Show("Begin Install");
-            Bootstrapper.Engine.Plan(LaunchAction.Install);
+
+            if (action == SetupAction.Install)
+            {
+                Title = "Progression de l'installation";
+                Bootstrapper.Engine.Plan(LaunchAction.Install);
+            }
+            else if (action == SetupAction.UnInstall)
+            {
+                Title = "Progression de la désinstallation";
+                Bootstrapper.Engine.Plan(LaunchAction.Uninstall);
+            }
+
+            _action = action;
         }
         #endregion
 
@@ -71,11 +95,6 @@ namespace SetupUI.ViewModels
         #endregion
 
         #region Bootstrapper Events
-        private void OnCacheAcquireProgress(object sender, CacheAcquireProgressEventArgs e)
-        {
-
-        }
-
         private void OnExecuteProgress(object sender, ExecuteProgressEventArgs e)
         {
             ProgressPercentage = e.ProgressPercentage;
@@ -93,17 +112,11 @@ namespace SetupUI.ViewModels
             }
         }
 
-        private void OnDetectPackageComplete(object sender, DetectPackageCompleteEventArgs e)
-        {
-            MessageBox.Show(e.PackageId);
-            MessageBox.Show(e.State.ToString());
-        }
-
         private void OnApplyComplete(object sender, ApplyCompleteEventArgs e)
         {
             ProgressPercentage = 100;
+            EventManager.PublishEvent(new InstallEvent() {Action = _action});
         }
         #endregion
-
     }
 }

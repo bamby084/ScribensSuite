@@ -1,4 +1,5 @@
 ﻿using System.Windows.Input;
+using SetupUI.Enums;
 using SetupUI.Events;
 
 namespace SetupUI.ViewModels
@@ -14,7 +15,7 @@ namespace SetupUI.ViewModels
 
         private void OnStart(object param)
         {
-            EventManager.PublishEvent(new BeginEvent() {FromScreen = SetupScreen.Welcome});
+            EventManager.PublishEvent(new InstallEvent() {Action = SetupAction.ShowLicenseAgreement});
         }
     }
 }

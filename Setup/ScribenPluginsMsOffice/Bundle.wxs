@@ -11,7 +11,7 @@
     <WixVariable Id="WixMbaPrereqLicenseUrl" Value=""/>
     <WixVariable Id="WixMbaPrereqPackageId" Value=""/> 
 		<Chain>
-      <MsiPackage SourceFile="$(var.SolutionDir)Setup\Output\ScribensMsOfficePlugin.msi"/>
+      <MsiPackage SourceFile="$(var.SolutionDir)Setup\Output\ScribensMSOfficePlugin.msi" Id="ScribensMSOfficePlugin" Visible="no"/>
     </Chain>
 	</Bundle>
 </Wix>

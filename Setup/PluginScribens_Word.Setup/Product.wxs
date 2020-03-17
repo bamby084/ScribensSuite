@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
-  <Product Id="*" Name="Plugin Scribens pour Microsoft Office" Language="1033" Version="1.0.0.0" Manufacturer="Scribens" UpgradeCode="ad4e2889-2e99-4be4-93e4-a02b4165e626">
+  <Product Id="D2DBD050-4E0E-4BB8-B159-9D820345BB0D" Name="Plugin Scribens pour Microsoft Office" Language="1033" Version="1.0.0.0" Manufacturer="Scribens"
+           UpgradeCode="ad4e2889-2e99-4be4-93e4-a02b4165e626">
     <Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" />
     <MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
     <Media Id="1" Cabinet="ScribensMSWordPlugins.cab" EmbedCab="yes"/>
@@ -10,6 +11,11 @@
       <ComponentRef Id="WordRegistryComponent"/>
     </Feature>
 
+    <Property Id="InstallDir" Value="[INSTALLFOLDER]"/>
+
+    <InstallExecuteSequence>
+      <Custom Action="OnUnInstallAction" After="InstallFinalize">(REMOVE="ALL")</Custom>
+    </InstallExecuteSequence>
   </Product>
 
   <Fragment>
@@ -17,9 +23,10 @@
       <Directory Id="ProgramFilesFolder">
         <Directory Id="INSTALLFOLDER" Name="Scribens">
           <Directory Id="MSWORD" Name="MS Word">
+            <Directory Id="FR" Name="fr"/>
           </Directory>
         </Directory>
-        
+
         <Component Id="WordRegistryComponent">
           <RegistryValue Id="Word_RegKey_FriendlyName" Root="HKCU"
                          Key="Software\Microsoft\Office\Word\AddIns\Scribens"
@@ -43,7 +50,10 @@
                         Key="Software\Microsoft\Office\Word\AddIns\Scribens"
                         Name="RootFolder" Value=""
                         Type="string"/>
+
+          <RemoveRegistryKey Action="removeOnUninstall" Root="HKCU" Key="Software\Microsoft\Office\Word\AddIns\Scribens" Id="RemoveRegistry"/>
         </Component>
+
       </Directory>
     </Directory>
   </Fragment>
@@ -78,5 +88,11 @@
         </Component>
       </Directory>
     </DirectoryRef>
+  </Fragment>
+
+  <Fragment>
+    <Binary Id="CustomAction.CA" SourceFile="$(var.Setup.CustomActions.TargetDir)$(var.Setup.CustomActions.TargetName).CA.dll"/>
+    <CustomAction Id="OnUnInstallAction" BinaryKey="CustomAction.CA" DllEntry="UnInstallAction"/>
+    <CustomAction Id="SetInstallDir" Property="InstallDir" Value="[INSTALLFOLDER]"/>
   </Fragment>
 </Wix>

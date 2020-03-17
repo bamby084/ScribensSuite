@@ -17,12 +17,20 @@
             <views:LicenseAgreementView/>
         </DataTemplate>
 
-        <DataTemplate DataType="{x:Type viewModels:SetupViewModel}">
-            <views:SetupView/>
+        <DataTemplate DataType="{x:Type viewModels:ProgressViewModel}">
+            <views:ProgressView/>
         </DataTemplate>
 
         <DataTemplate DataType="{x:Type viewModels:SelectProductViewModel}">
             <views:SelectProductView/>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type viewModels:UnInstallationConfirmViewModel}">
+            <views:UnInstallationConfirmView/>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type viewModels:CompleteViewModel}">
+            <views:CompleteView/>
         </DataTemplate>
     </Window.Resources>
 
