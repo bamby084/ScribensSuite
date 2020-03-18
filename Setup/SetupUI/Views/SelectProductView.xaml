@@ -24,7 +24,7 @@
         </Grid.RowDefinitions>
 
         <TextBlock Text="Scribens sera installe sur" Grid.Row="1" Margin="30 0 0 15"
-                   FontSize="40" Foreground="{StaticResource TextForegroundColor}"/>
+                   FontSize="30" Foreground="{StaticResource TextForegroundColor}"/>
 
         <Grid Grid.Row="2" Margin="50 0 0 0">
             <Grid.Resources>

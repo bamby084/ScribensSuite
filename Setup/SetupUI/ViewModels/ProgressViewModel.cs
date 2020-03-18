@@ -115,7 +115,13 @@ namespace SetupUI.ViewModels
         private void OnApplyComplete(object sender, ApplyCompleteEventArgs e)
         {
             ProgressPercentage = 100;
-            EventManager.PublishEvent(new InstallEvent() {Action = _action});
+
+            EventManager.PublishEvent(new InstallEvent()
+            {
+                Action = _action == SetupAction.Install
+                    ? SetupAction.InstallComplete
+                    : SetupAction.UnInstallComplete
+            });
         }
         #endregion
     }

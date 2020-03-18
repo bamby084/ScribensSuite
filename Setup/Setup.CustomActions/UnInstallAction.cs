@@ -50,7 +50,7 @@ namespace Setup.CustomActions
 
         private static void Log(string content)
         {
-            File.WriteAllText(@"c:\temp\log.txt", content);
+            //File.WriteAllText(@"c:\temp\log.txt", content);
         }
     }
 }

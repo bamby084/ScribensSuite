@@ -26,7 +26,7 @@
         </Grid.RowDefinitions>
 
         <TextBlock Text="Désinstaller Scribens" Grid.Row="1" Margin="30 0 0 0"
-                   Foreground="{StaticResource TextForegroundColor}" FontSize="40" TextWrapping="Wrap" TextAlignment="Left"/>
+                   Foreground="{StaticResource TextForegroundColor}" FontSize="30" TextWrapping="Wrap" TextAlignment="Left"/>
         <TextBlock Grid.Row="3" Text="Cela désinstallera Scribens pour ces produits"
                  Foreground="{StaticResource TextForegroundColor}" FontSize="16" Margin="40 0 0 0"/>
 

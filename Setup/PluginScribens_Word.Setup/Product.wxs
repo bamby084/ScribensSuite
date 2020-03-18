@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
-  <Product Id="D2DBD050-4E0E-4BB8-B159-9D820345BB0D" Name="Plugin Scribens pour Microsoft Office" Language="1033" Version="1.0.0.0" Manufacturer="Scribens"
+  <Product Id="C2DBD050-4E0E-4BB8-B159-9D820345BB0D" Name="Plugin Scribens pour Microsoft Office" Language="1033" Version="1.0.0.0" Manufacturer="Scribens"
            UpgradeCode="ad4e2889-2e99-4be4-93e4-a02b4165e626">
     <Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" />
     <MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
@@ -9,39 +9,22 @@
     <Feature Id="ProductFeature" Title="Plugin Scribens pour Microsoft Office" Level="1">
       <ComponentGroupRef Id="ProductComponents" />
       <ComponentRef Id="WordRegistryComponent"/>
-      <ComponentRef Id="RemoveFilesComponent"/>
-      <ComponentRef Id="RemoveResourceFilesComponent"/>
-      <ComponentRef Id="RemoveInstallFolderComponent"/>
     </Feature>
 
     <Property Id="InstallDir" Value="[INSTALLFOLDER]"/>
 
     <InstallExecuteSequence>
-      <Custom Action="OnUnInstallAction" After="InstallFinalize">(REMOVE="ALL")</Custom>
+      <Custom Action="OnUnInstallAction" After="InstallFinalize">REMOVE="ALL"</Custom>
     </InstallExecuteSequence>
   </Product>
 
   <Fragment>
     <Directory Id="TARGETDIR" Name="SourceDir">
       <Directory Id="ProgramFilesFolder">
-        
         <Directory Id="INSTALLFOLDER" Name="Scribens">
           <Directory Id="MSWORD" Name="MS Word">
-            <Directory Id="FR" Name="fr">
-              <Component Id="RemoveResourceFilesComponent" Guid="82528E97-85B8-4ED5-90F1-0D0CE65E8098">
-                <RemoveFile Id="RemoveResourceFiles" Name="*.*" On="uninstall"/>
-              </Component>
-            </Directory>  
-
-              <Component Id="RemoveFilesComponent" Guid="D811485A-F658-4C00-9BFF-DB4BF1E6930F">
-                <RemoveFile Id="RemoveFiles" Name="*.*" On="uninstall"/>
-                <RemoveFolder Directory="FR" On="uninstall" Id="RemoveResourceFolder"/>
-              </Component>
-            </Directory>
-
-          <Component Id="RemoveInstallFolderComponent" Guid="08C032EB-3142-4A12-BFD8-3AC3E0B5FFF2">
-            <RemoveFolder Directory="MSWORD" On="uninstall" Id="RemoveInstallFolder"/>
-          </Component>
+            <Directory Id="FR" Name="fr"/>  
+          </Directory>
         </Directory>
 
         <Component Id="WordRegistryComponent">
@@ -67,8 +50,6 @@
                         Key="Software\Microsoft\Office\Word\AddIns\Scribens"
                         Name="RootFolder" Value=""
                         Type="string"/>
-
-          <RemoveRegistryKey Action="removeOnUninstall" Root="HKCU" Key="Software\Microsoft\Office\Word\AddIns\Scribens" Id="RemoveRegistry"/>
         </Component>
 
       </Directory>
@@ -109,7 +90,6 @@
 
   <Fragment>
     <Binary Id="CustomAction.CA" SourceFile="$(var.Setup.CustomActions.TargetDir)$(var.Setup.CustomActions.TargetName).CA.dll"/>
-    <CustomAction Id="OnUnInstallAction" BinaryKey="CustomAction.CA" DllEntry="UnInstallAction"/>
-    <CustomAction Id="SetInstallDir" Property="InstallDir" Value="[INSTALLFOLDER]"/>
+    <CustomAction Id="OnUnInstallAction" BinaryKey="CustomAction.CA" DllEntry="UnInstallAction" Impersonate="yes"/>
   </Fragment>
 </Wix>
