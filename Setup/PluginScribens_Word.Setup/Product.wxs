@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
-  <Product Id="C2DBD050-4E0E-4BB8-B159-9D820345BB0D" Name="Plugin Scribens pour Microsoft Office" Language="1033" Version="1.0.0.0" Manufacturer="Scribens"
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi"  xmlns:util="http://schemas.microsoft.com/wix/UtilExtension">
+  <Product Id="E88B7593-A376-4692-A9C6-87506A222E8A" Name="Plugin Scribens pour Microsoft Office" Language="1033" Version="1.0.0.0" Manufacturer="Scribens"
            UpgradeCode="ad4e2889-2e99-4be4-93e4-a02b4165e626">
     <Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" />
     <MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
@@ -8,13 +8,18 @@
 
     <Feature Id="ProductFeature" Title="Plugin Scribens pour Microsoft Office" Level="1">
       <ComponentGroupRef Id="ProductComponents" />
-      <ComponentRef Id="WordRegistryComponent"/>
+      <ComponentGroupRef Id="RegistryComponents"/>
+      <ComponentRef Id="CleanupMainApplicationFolder" />
     </Feature>
 
     <Property Id="InstallDir" Value="[INSTALLFOLDER]"/>
 
+    <Property Id="APPLICATIONFOLDER">
+      <RegistrySearch Key="SOFTWARE\Scribens\OfficePlugin" Root="HKLM" Type="raw" Id="APPLICATIONFOLDER_REGSEARCH" Name="Path" />
+    </Property>
+    
     <InstallExecuteSequence>
-      <Custom Action="OnUnInstallAction" After="InstallFinalize">REMOVE="ALL"</Custom>
+      <Custom Action="OnUnInstallAction" After="InstallFinalize">(NOT UPGRADINGPRODUCTCODE) AND (REMOVE="ALL")</Custom>
     </InstallExecuteSequence>
   </Product>
 
@@ -25,58 +30,38 @@
           <Directory Id="MSWORD" Name="MS Word">
             <Directory Id="FR" Name="fr"/>  
           </Directory>
-        </Directory>
-
-        <Component Id="WordRegistryComponent">
-          <RegistryValue Id="Word_RegKey_FriendlyName" Root="HKCU"
-                         Key="Software\Microsoft\Office\Word\AddIns\Scribens"
-                         Name="FriendlyName"
-                         Value="Scribens"
-                         Type="string"/>
-          <RegistryValue Id="Word_RegKey_Description" Root="HKCU"
-                        Key="Software\Microsoft\Office\Word\AddIns\Scribens"
-                        Name="Description"
-                        Value="Scribens add-in for MS Word to check spelling"
-                        Type="string"/>
-          <RegistryValue Id="Word_RegKey_Manifest" Root="HKCU"
-                         Key="Software\Microsoft\Office\Word\AddIns\Scribens"
-                         Name="Manifest" Value="[INSTALLFOLDER]MS Word\PluginScribens_Word.vsto|vstolocal"
-                         Type="string" KeyPath="yes" />
-          <RegistryValue Id="Word_RegKey_LoadBehavior" Root="HKCU"
-                         Key="Software\Microsoft\Office\Word\AddIns\Scribens"
-                         Name="LoadBehavior" Value="3"
-                         Type="integer"/>
-          <RegistryValue Id="RegKey_RootFolder" Root="HKCU"
-                        Key="Software\Microsoft\Office\Word\AddIns\Scribens"
-                        Name="RootFolder" Value=""
-                        Type="string"/>
-        </Component>
-
+          <Directory Id="MSOUTLOOK" Name="MS Outlook"/>
+          <Directory Id="MSPOWERPOINT" Name="MS PowerPoint"/>
+          <Directory Id="MSEXCEL" Name="MS Excel"/>
+        </Directory>                
       </Directory>
     </Directory>
   </Fragment>
 
   <Fragment>
     <ComponentGroup Id="ProductComponents" Directory="INSTALLFOLDER">
-      <ComponentRef Id="WordComponents"/>
+      <ComponentRef Id="WordComponent"/>
       <ComponentRef Id="WordLocalization"/>
+      <ComponentRef Id="OutlookComponent"/>
+      <ComponentRef Id="PowerPointComponent"/>
+      <ComponentRef Id="ExcelComponent"/>
     </ComponentGroup>
 
     <DirectoryRef Id="MSWORD">
-      <Component Id="WordComponents" DiskId="1" KeyPath="yes" Guid="21E1C770-51ED-444D-936F-1C9DB7EFE336">
-        <File Source="$(var.PluginScribens_Word.TargetDir)" Name="Microsoft.Office.Tools.Common.v4.0.Utilities.dll"/>
-        <File Source="$(var.PluginScribens_Word.TargetDir)" Name="PluginScribens_Word.dll"/>
-        <File Source="$(var.PluginScribens_Word.TargetDir)" Name="PluginScribens_Word.dll.manifest"/>
-        <File Source="$(var.PluginScribens_Word.TargetDir)" Name="PluginScribens_Word.dll.config"/>
-        <File Source="$(var.PluginScribens_Word.TargetDir)" Name="PluginScribens_Word.vsto"/>
-        <File Source="$(var.PluginScribens_Word.TargetDir)" Name="HtmlToXamlConverter.dll"/>
-        <File Source="$(var.PluginScribens_Word.TargetDir)" Name="log4net.dll"/>
-        <File Source="$(var.PluginScribens_Word.TargetDir)" Name="Newtonsoft.Json.dll"/>
-        <File Source="$(var.PluginScribens_Word.TargetDir)" Name="Xceed.Wpf.Toolkit.dll"/>
-        <File Source="$(var.PluginScribens_Word.TargetDir)" Name="Xceed.Wpf.AvalonDock.dll"/>
-        <File Source="$(var.PluginScribens_Word.TargetDir)" Name="Xceed.Wpf.AvalonDock.Themes.Aero.dll"/>
-        <File Source="$(var.PluginScribens_Word.TargetDir)" Name="Xceed.Wpf.AvalonDock.Themes.Metro.dll"/>
-        <File Source="$(var.PluginScribens_Word.TargetDir)" Name="Xceed.Wpf.AvalonDock.Themes.VS2010.dll"/>
+      <Component Id="WordComponent" DiskId="1" KeyPath="yes" Guid="21E1C770-51ED-444D-936F-1C9DB7EFE336">
+        <File Source="$(var.PluginScribens_Word.TargetDir)Microsoft.Office.Tools.Common.v4.0.Utilities.dll" Id="WTCU"/>
+        <File Source="$(var.PluginScribens_Word.TargetDir)PluginScribens_Word.dll"/>
+        <File Source="$(var.PluginScribens_Word.TargetDir)PluginScribens_Word.dll.manifest"/>
+        <File Source="$(var.PluginScribens_Word.TargetDir)PluginScribens_Word.dll.config"/>
+        <File Source="$(var.PluginScribens_Word.TargetDir)PluginScribens_Word.vsto"/>
+        <File Source="$(var.PluginScribens_Word.TargetDir)HtmlToXamlConverter.dll"/>
+        <File Source="$(var.PluginScribens_Word.TargetDir)log4net.dll"/>
+        <File Source="$(var.PluginScribens_Word.TargetDir)Newtonsoft.Json.dll"/>
+        <File Source="$(var.PluginScribens_Word.TargetDir)Xceed.Wpf.Toolkit.dll"/>
+        <File Source="$(var.PluginScribens_Word.TargetDir)Xceed.Wpf.AvalonDock.dll"/>
+        <File Source="$(var.PluginScribens_Word.TargetDir)Xceed.Wpf.AvalonDock.Themes.Aero.dll"/>
+        <File Source="$(var.PluginScribens_Word.TargetDir)Xceed.Wpf.AvalonDock.Themes.Metro.dll"/>
+        <File Source="$(var.PluginScribens_Word.TargetDir)Xceed.Wpf.AvalonDock.Themes.VS2010.dll"/>
       </Component>
 
       <Directory Id="FrenchResources" Name="fr">
@@ -86,10 +71,151 @@
         </Component>
       </Directory>
     </DirectoryRef>
+    
+    <DirectoryRef Id="MSOUTLOOK">
+      <Component Id="OutlookComponent" DiskId="1" KeyPath="yes" Guid="3A4D9395-87CB-4041-9823-B42399728796">
+        <File Source="$(var.SolutionDir)Setup\Others\Outlook\Microsoft.Office.Tools.Common.v4.0.Utilities.dll" Id="OTCU"/>
+        <File Source="$(var.SolutionDir)Setup\Others\Outlook\Microsoft.Office.Tools.Outlook.v4.0.Utilities.dll"/>
+        <File Source="$(var.SolutionDir)Setup\Others\Outlook\Mono.HttpUtility.dll" Id="OMONO"/>
+        <File Source="$(var.SolutionDir)Setup\Others\Outlook\PluginScribens_Outlook.dll"/>
+        <File Source="$(var.SolutionDir)Setup\Others\Outlook\PluginScribens_Outlook.dll.manifest"/>
+        <File Source="$(var.SolutionDir)Setup\Others\Outlook\PluginScribens_Outlook.vsto"/>
+      </Component>
+    </DirectoryRef>
+
+    <DirectoryRef Id="MSPOWERPOINT">
+      <Component Id="PowerPointComponent" DiskId="1" KeyPath="yes" Guid="DF32744F-94CF-403E-8284-4E1FCF7B5F9B">
+        <File Source="$(var.SolutionDir)Setup\Others\PowerPoint\Fleck.dll" Id="PPFLECK"/>
+        <File Source="$(var.SolutionDir)Setup\Others\PowerPoint\Microsoft.Office.Tools.Common.v4.0.Utilities.dll" Id="PPTCU"/>
+        <File Source="$(var.SolutionDir)Setup\Others\PowerPoint\Mono.HttpUtility.dll" Id="PPMONO"/>
+        <File Source="$(var.SolutionDir)Setup\Others\PowerPoint\PluginScribens_PowerPoint.dll"/>
+        <File Source="$(var.SolutionDir)Setup\Others\PowerPoint\PluginScribens_PowerPoint.dll.manifest"/>
+        <File Source="$(var.SolutionDir)Setup\Others\PowerPoint\PluginScribens_PowerPoint.vsto"/>
+      </Component>
+    </DirectoryRef>
+
+    <DirectoryRef Id="MSEXCEL">
+      <Component Id="ExcelComponent" DiskId="1" KeyPath="yes" Guid="88C44505-97E9-4CB4-9196-109CA2AED90B">
+        <File Source="$(var.SolutionDir)Setup\Others\Excel\Fleck.dll" Id="EFLECK"/>
+        <File Source="$(var.SolutionDir)Setup\Others\Excel\Microsoft.CSharp.dll"/>
+        <File Source="$(var.SolutionDir)Setup\Others\Excel\Microsoft.Office.Tools.Common.v4.0.Utilities.dll" Id="ETCU"/>
+        <File Source="$(var.SolutionDir)Setup\Others\Excel\Microsoft.Office.Tools.dll"/>
+        <File Source="$(var.SolutionDir)Setup\Others\Excel\Mono.HttpUtility.dll" Id="EMONO"/>
+        <File Source="$(var.SolutionDir)Setup\Others\Excel\PluginScribens_Excel.dll"/>
+        <File Source="$(var.SolutionDir)Setup\Others\Excel\PluginScribens_Excel.dll.manifest"/>
+        <File Source="$(var.SolutionDir)Setup\Others\Excel\PluginScribens_Excel.vsto"/>
+        <File Source="$(var.SolutionDir)Setup\Others\Excel\System.Dynamic.dll"/>
+      </Component>
+    </DirectoryRef>
+
   </Fragment>
 
   <Fragment>
     <Binary Id="CustomAction.CA" SourceFile="$(var.Setup.CustomActions.TargetDir)$(var.Setup.CustomActions.TargetName).CA.dll"/>
-    <CustomAction Id="OnUnInstallAction" BinaryKey="CustomAction.CA" DllEntry="UnInstallAction" Impersonate="yes"/>
+    <CustomAction Id="OnUnInstallAction" BinaryKey="CustomAction.CA" DllEntry="UnInstallAction" Impersonate="no"/>
+  </Fragment>
+
+  <Fragment>
+    <DirectoryRef Id="INSTALLFOLDER">
+      <Component Id="CleanupMainApplicationFolder" Guid="*">
+        <RegistryValue Root="HKLM" Key="SOFTWARE\Scribens\OfficePlugin" Name="Path" Type="string" Value="[INSTALLFOLDER]" KeyPath="yes" />
+        <util:RemoveFolderEx On="uninstall" Property="APPLICATIONFOLDER"/>
+      </Component>
+    </DirectoryRef>
+  </Fragment>
+
+  <Fragment>
+    <ComponentGroup Id="RegistryComponents">
+      <ComponentRef Id="WordRegistryComponent"/>
+      <ComponentRef Id="OutlookRegistryComponent"/>
+      <ComponentRef Id="PowerPointRegistryComponent"/>
+      <ComponentRef Id="ExcelRegistryComponent"/>
+    </ComponentGroup>
+    
+    <DirectoryRef Id="INSTALLFOLDER">
+      <Component Id="WordRegistryComponent" Guid="*">
+        <RegistryValue Id="Word_RegKey_FriendlyName" Root="HKCU"
+                       Key="Software\Microsoft\Office\Word\AddIns\Scribens"
+                       Name="FriendlyName"
+                       Value="Scribens"
+                       Type="string"/>
+        <RegistryValue Id="Word_RegKey_Description" Root="HKCU"
+                      Key="Software\Microsoft\Office\Word\AddIns\Scribens"
+                      Name="Description"
+                      Value="Scribens add-in for MS Word to check spelling"
+                      Type="string"/>
+        <RegistryValue Id="Word_RegKey_Manifest" Root="HKCU"
+                       Key="Software\Microsoft\Office\Word\AddIns\Scribens"
+                       Name="Manifest" Value="[INSTALLFOLDER]MS Word\PluginScribens_Word.vsto|vstolocal"
+                       Type="string" KeyPath="yes" />
+        <RegistryValue Id="Word_RegKey_LoadBehavior" Root="HKCU"
+                       Key="Software\Microsoft\Office\Word\AddIns\Scribens"
+                       Name="LoadBehavior" Value="3"
+                       Type="integer"/>
+      </Component>
+
+      <Component Id="OutlookRegistryComponent" Guid="*">
+        <RegistryValue Id="Outlook_RegKey_FriendlyName" Root="HKCU"
+                       Key="Software\Microsoft\Office\Outlook\AddIns\Scribens"
+                       Name="FriendlyName"
+                       Value="Scribens"
+                       Type="string"/>
+        <RegistryValue Id="Outlook_RegKey_Description" Root="HKCU"
+                      Key="Software\Microsoft\Office\Outlook\AddIns\Scribens"
+                      Name="Description"
+                      Value="Scribens add-in for MS Outlook to check spelling"
+                      Type="string"/>
+        <RegistryValue Id="Outlook_RegKey_Manifest" Root="HKCU"
+                       Key="Software\Microsoft\Office\Outlook\AddIns\Scribens"
+                       Name="Manifest" Value="[INSTALLFOLDER]MS Outlook\PluginScribens_Outlook.vsto|vstolocal"
+                       Type="string" KeyPath="yes" />
+        <RegistryValue Id="Outlook_RegKey_LoadBehavior" Root="HKCU"
+                       Key="Software\Microsoft\Office\Outlook\AddIns\Scribens"
+                       Name="LoadBehavior" Value="3"
+                       Type="integer"/>
+      </Component>
+
+      <Component Id="ExcelRegistryComponent" Guid="*">
+        <RegistryValue Id="Excel_RegKey_FriendlyName" Root="HKCU"
+                       Key="Software\Microsoft\Office\Excel\AddIns\Scribens"
+                       Name="FriendlyName"
+                       Value="Scribens"
+                       Type="string"/>
+        <RegistryValue Id="Excel_RegKey_Description" Root="HKCU"
+                      Key="Software\Microsoft\Office\Excel\AddIns\Scribens"
+                      Name="Description"
+                      Value="Scribens add-in for MS Excel to check spelling"
+                      Type="string"/>
+        <RegistryValue Id="Excel_RegKey_Manifest" Root="HKCU"
+                       Key="Software\Microsoft\Office\Excel\AddIns\Scribens"
+                       Name="Manifest" Value="[INSTALLFOLDER]MS Excel\PluginScribens_Excel.vsto|vstolocal"
+                       Type="string" KeyPath="yes" />
+        <RegistryValue Id="Excel_RegKey_LoadBehavior" Root="HKCU"
+                       Key="Software\Microsoft\Office\Excel\AddIns\Scribens"
+                       Name="LoadBehavior" Value="3"
+                       Type="integer"/>
+      </Component>
+
+      <Component Id="PowerPointRegistryComponent" Guid="*">
+        <RegistryValue Id="PowerPoint_RegKey_FriendlyName" Root="HKCU"
+                       Key="Software\Microsoft\Office\PowerPoint\AddIns\Scribens"
+                       Name="FriendlyName"
+                       Value="Scribens"
+                       Type="string"/>
+        <RegistryValue Id="PowerPoint_RegKey_Description" Root="HKCU"
+                      Key="Software\Microsoft\Office\PowerPoint\AddIns\Scribens"
+                      Name="Description"
+                      Value="Scribens add-in for MS PowerPoint to check spelling"
+                      Type="string"/>
+        <RegistryValue Id="PowerPoint_RegKey_Manifest" Root="HKCU"
+                       Key="Software\Microsoft\Office\PowerPoint\AddIns\Scribens"
+                       Name="Manifest" Value="[INSTALLFOLDER]MS PowerPoint\PluginScribens_PowerPoint.vsto|vstolocal"
+                       Type="string" KeyPath="yes" />
+        <RegistryValue Id="PowerPoint_RegKey_LoadBehavior" Root="HKCU"
+                       Key="Software\Microsoft\Office\PowerPoint\AddIns\Scribens"
+                       Name="LoadBehavior" Value="3"
+                       Type="integer"/>
+      </Component>
+    </DirectoryRef>
   </Fragment>
 </Wix>

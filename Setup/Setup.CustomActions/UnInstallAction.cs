@@ -13,7 +13,7 @@ namespace Setup.CustomActions
         {
             var installFolder = session["INSTALLFOLDER"];
             DeleteInstallFiles(installFolder);
-            DeleteRegistry();
+            DeleteRegistryEntries();
 
             return ActionResult.Success;
         }
@@ -22,7 +22,6 @@ namespace Setup.CustomActions
         {
             try
             {
-                Log(path);
                 Directory.Delete(path, true);
             }
             catch (Exception ex)
@@ -31,12 +30,16 @@ namespace Setup.CustomActions
             }
         }
 
-        private static void DeleteRegistry()
+        private static void DeleteRegistryEntries()
         {
             try
             {
-                string msWordAddinKey = @"Software\Microsoft\Office\Word\Addins";
-                using (var regKey = Registry.CurrentUser.OpenSubKey(msWordAddinKey, true))
+                string wordAddinKey = @"Software\Microsoft\Office\Word\Addins";
+                string excelAddinKey = @"Software\Microsoft\Office\Excel\Addins";
+                string powerPointAddinKey = @"Software\Microsoft\Office\PowerPoint\Addins";
+                string outlookAddinKey = @"Software\Microsoft\Office\Outlook\Addins";
+
+                using (var regKey = Registry.CurrentUser.OpenSubKey(wordAddinKey, true))
                 {
                     if (regKey != null)
                         regKey.DeleteSubKey("Scribens");

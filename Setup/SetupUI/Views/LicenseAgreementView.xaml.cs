@@ -14,7 +14,7 @@ namespace SetupUI.Views
         {
             InitializeComponent();
 
-            using (var memStream = new MemoryStream(Encoding.UTF8.GetBytes(Properties.Resource.License)))
+            using (var memStream = new MemoryStream(Encoding.UTF8.GetBytes(Properties.Resource.eula)))
             {
                 LicenseTextBox.Selection.Load(memStream, DataFormats.Rtf);
             }

@@ -4,14 +4,17 @@
           IconSourceFile="scribens.ico"
           UpgradeCode="cbb71511-264c-4b17-b718-49266867c411">
     <BootstrapperApplicationRef Id="ManagedBootstrapperApplicationHost">
-      <Payload SourceFile="$(var.SolutionDir)Setup\Output\BootstrapperCore.config"/>
-      <Payload SourceFile="$(var.SolutionDir)Setup\Output\SetupUI.dll"/>
-      <Payload SourceFile="$(var.SolutionDir)Setup\Output\Microsoft.Deployment.WindowsInstaller.dll"/>
+      <Payload SourceFile="$(var.SetupUI.TargetPath)"/>
+      <Payload SourceFile="$(var.ProjectDir)Lib\BootstrapperCore.config"/>
+      <Payload SourceFile="$(var.ProjectDir)Lib\BootstrapperCore.dll"/>
+      <Payload SourceFile="$(var.ProjectDir)Lib\Microsoft.Deployment.WindowsInstaller.dll"/>
     </BootstrapperApplicationRef>
+    
     <WixVariable Id="WixMbaPrereqLicenseUrl" Value=""/>
-    <WixVariable Id="WixMbaPrereqPackageId" Value=""/> 
+        
 		<Chain>
-      <MsiPackage SourceFile="$(var.SolutionDir)Setup\Output\ScribensMsOfficePlugin.msi" Id="ScribensMSOfficePlugin" Visible="no"/>
+      <PackageGroupRef Id="NetFx46Redist"/>
+      <MsiPackage SourceFile="$(var.SetupMsi.TargetPath)" Id="ScribensMSOfficePlugin" Visible="no"/>
     </Chain>
 	</Bundle>
 </Wix>

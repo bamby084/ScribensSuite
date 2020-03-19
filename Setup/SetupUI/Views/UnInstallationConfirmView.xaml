@@ -18,7 +18,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="20"/>
             <RowDefinition Height="Auto"/>
-            <RowDefinition Height="20"/>
+            <RowDefinition Height="10"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="5"/>
             <RowDefinition Height="*"/>
@@ -27,10 +27,10 @@
 
         <TextBlock Text="Désinstaller Scribens" Grid.Row="1" Margin="30 0 0 0"
                    Foreground="{StaticResource TextForegroundColor}" FontSize="30" TextWrapping="Wrap" TextAlignment="Left"/>
-        <TextBlock Grid.Row="3" Text="Cela désinstallera Scribens pour ces produits"
+        <TextBlock Grid.Row="3" Text="Cela désinstallera Scribens pour ces produits:"
                  Foreground="{StaticResource TextForegroundColor}" FontSize="16" Margin="40 0 0 0"/>
 
-        <Grid Grid.Row="5" Margin="50 0 0 0">
+        <Grid Grid.Row="5" Margin="50 40 0 0">
             <Grid.Resources>
                 <Style TargetType="{x:Type TextBlock}">
                     <Setter Property="Foreground" Value="{StaticResource TextForegroundColor}"/>
@@ -70,7 +70,7 @@
 
         <Grid Grid.Row="6" Background="{StaticResource FooterBackgroundColor}">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                <Button Content="D'accord" HorizontalAlignment="Right" Width="100" Command="{Binding Path=UnInstallCommand}"/>
+                <Button Content="Désinstaller" HorizontalAlignment="Right" Width="100" Command="{Binding Path=UnInstallCommand}"/>
                 <Button Content="Annuler" HorizontalAlignment="Right" Margin="10 0 10 0" Command="{Binding Path=CancelCommand}"/>
             </StackPanel>
         </Grid>

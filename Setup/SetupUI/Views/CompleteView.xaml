@@ -25,7 +25,7 @@
         <TextBlock Foreground="{StaticResource TextForegroundColor}" Grid.Row="1" 
                    Text="{Binding Path=Title,FallbackValue=Complete}" FontSize="30" Margin="30 0 0 0"/>
         <Grid Grid.Row="3" Background="{StaticResource FooterBackgroundColor}">
-            <Button Content="Proche" HorizontalAlignment="Right" Margin="10 0 10 0" Command="{Binding Path=CloseCommand}"/>
+            <Button Content="Terminer" HorizontalAlignment="Right" Margin="10 0 10 0" Command="{Binding Path=CloseCommand}"/>
         </Grid>
     </Grid>
 </UserControl>

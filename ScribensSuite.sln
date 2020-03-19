@@ -17,6 +17,41 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SetupUI", "Setup\SetupUI\Se
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Setup.CustomActions", "Setup\Setup.CustomActions\Setup.CustomActions.csproj", "{6B08E48C-2D10-4167-8A6C-E2249DC5C5DF}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Others", "Others", "{84DBD898-10A9-4860-8E14-D08C26D0271A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Outlook", "Outlook", "{02B0A415-E9B4-4700-8FAF-1FCD9D9F14F9}"
+	ProjectSection(SolutionItems) = preProject
+		Setup\Others\Outlook\Microsoft.Office.Tools.Common.v4.0.Utilities.dll = Setup\Others\Outlook\Microsoft.Office.Tools.Common.v4.0.Utilities.dll
+		Setup\Others\Outlook\Microsoft.Office.Tools.Outlook.v4.0.Utilities.dll = Setup\Others\Outlook\Microsoft.Office.Tools.Outlook.v4.0.Utilities.dll
+		Setup\Others\Outlook\Mono.HttpUtility.dll = Setup\Others\Outlook\Mono.HttpUtility.dll
+		Setup\Others\Outlook\PluginScribens_Outlook.dll = Setup\Others\Outlook\PluginScribens_Outlook.dll
+		Setup\Others\Outlook\PluginScribens_Outlook.dll.manifest = Setup\Others\Outlook\PluginScribens_Outlook.dll.manifest
+		Setup\Others\Outlook\PluginScribens_Outlook.vsto = Setup\Others\Outlook\PluginScribens_Outlook.vsto
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PowerPoint", "PowerPoint", "{489920FC-C364-416F-A9A3-2D72FD7B6C67}"
+	ProjectSection(SolutionItems) = preProject
+		Setup\Others\PowerPoint\Fleck.dll = Setup\Others\PowerPoint\Fleck.dll
+		Setup\Others\PowerPoint\Microsoft.Office.Tools.Common.v4.0.Utilities.dll = Setup\Others\PowerPoint\Microsoft.Office.Tools.Common.v4.0.Utilities.dll
+		Setup\Others\PowerPoint\Mono.HttpUtility.dll = Setup\Others\PowerPoint\Mono.HttpUtility.dll
+		Setup\Others\PowerPoint\PluginScribens_PowerPoint.dll = Setup\Others\PowerPoint\PluginScribens_PowerPoint.dll
+		Setup\Others\PowerPoint\PluginScribens_PowerPoint.dll.manifest = Setup\Others\PowerPoint\PluginScribens_PowerPoint.dll.manifest
+		Setup\Others\PowerPoint\PluginScribens_PowerPoint.vsto = Setup\Others\PowerPoint\PluginScribens_PowerPoint.vsto
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Excel", "Excel", "{8E3B126B-3A1E-4B65-B88E-EF873E92B39F}"
+	ProjectSection(SolutionItems) = preProject
+		Setup\Others\Excel\Fleck.dll = Setup\Others\Excel\Fleck.dll
+		Setup\Others\Excel\Microsoft.CSharp.dll = Setup\Others\Excel\Microsoft.CSharp.dll
+		Setup\Others\Excel\Microsoft.Office.Tools.Common.v4.0.Utilities.dll = Setup\Others\Excel\Microsoft.Office.Tools.Common.v4.0.Utilities.dll
+		Setup\Others\Excel\Microsoft.Office.Tools.dll = Setup\Others\Excel\Microsoft.Office.Tools.dll
+		Setup\Others\Excel\Mono.HttpUtility.dll = Setup\Others\Excel\Mono.HttpUtility.dll
+		Setup\Others\Excel\PluginScribens_Excel.dll = Setup\Others\Excel\PluginScribens_Excel.dll
+		Setup\Others\Excel\PluginScribens_Excel.dll.manifest = Setup\Others\Excel\PluginScribens_Excel.dll.manifest
+		Setup\Others\Excel\PluginScribens_Excel.vsto = Setup\Others\Excel\PluginScribens_Excel.vsto
+		Setup\Others\Excel\System.Dynamic.dll = Setup\Others\Excel\System.Dynamic.dll
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -69,6 +104,10 @@ Global
 		{CBB71511-264C-4B17-B718-49266867C411} = {E6E917A2-A7B1-48D7-A03F-80B47FBBDD96}
 		{7CAC6CC0-43A2-44F0-AECC-A75090B13423} = {E6E917A2-A7B1-48D7-A03F-80B47FBBDD96}
 		{6B08E48C-2D10-4167-8A6C-E2249DC5C5DF} = {E6E917A2-A7B1-48D7-A03F-80B47FBBDD96}
+		{84DBD898-10A9-4860-8E14-D08C26D0271A} = {E6E917A2-A7B1-48D7-A03F-80B47FBBDD96}
+		{02B0A415-E9B4-4700-8FAF-1FCD9D9F14F9} = {84DBD898-10A9-4860-8E14-D08C26D0271A}
+		{489920FC-C364-416F-A9A3-2D72FD7B6C67} = {84DBD898-10A9-4860-8E14-D08C26D0271A}
+		{8E3B126B-3A1E-4B65-B88E-EF873E92B39F} = {84DBD898-10A9-4860-8E14-D08C26D0271A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {77EFB5BD-1721-48AA-9881-42B63CB0F79E}
