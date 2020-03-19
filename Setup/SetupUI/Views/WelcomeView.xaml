@@ -18,18 +18,20 @@
        <Grid.RowDefinitions>
            <RowDefinition Height="60"/>
            <RowDefinition Height="Auto"/>
-           <RowDefinition Height="*"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
            <RowDefinition Height="60"/>
        </Grid.RowDefinitions>
 
         <Image Source="../Resources/Images/logo_128.png" HorizontalAlignment="Right" />
         <TextBlock Text="Scribens pour Microsoft Office" Grid.Row="1" HorizontalAlignment="Center" 
                    TextAlignment="Center" FontSize="40" Foreground="{StaticResource TextForegroundColor}"/>
-        <TextBlock Grid.Row="2" TextWrapping="Wrap" FontSize="18" HorizontalAlignment="Center" 
-                   TextAlignment="Center" Foreground="{StaticResource TextForegroundColor}" Margin="0 50 0 0"
-                   Text="Utilisez Scribens directement dans Word, Outlook, Excel et Powerpoint. Bénéficiez d'un haut niveau de correction orthographique pour produire des documents de qualité"/>
+        <TextBlock Grid.Row="3" TextWrapping="Wrap" FontSize="18" Margin="25 0 30 0"
+                   TextAlignment="Center" Foreground="{StaticResource TextForegroundColor}"
+                   Text="Utilisez Scribens directement dans Word, Outlook, Powerpoint et Excel. Bénéficiez d'un haut niveau de correction orthographique pour produire des documents de qualité"/>
 
-        <Grid Grid.Row="3" Background="{StaticResource FooterBackgroundColor}">
+        <Grid Grid.Row="5" Background="{StaticResource FooterBackgroundColor}">
             <Button HorizontalAlignment="Center" Content="Démarrer" Background="{StaticResource ButtonBackgroundColor}"
                     Command="{Binding Path=StartCommand}"/>
         </Grid>

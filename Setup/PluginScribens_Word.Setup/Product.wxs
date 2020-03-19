@@ -19,7 +19,7 @@
     </Property>
     
     <InstallExecuteSequence>
-      <Custom Action="OnUnInstallAction" After="InstallFinalize">(NOT UPGRADINGPRODUCTCODE) AND (REMOVE="ALL")</Custom>
+      <Custom Action="OnUnInstallAction" After="InstallFinalize">REMOVE="ALL"</Custom>
     </InstallExecuteSequence>
   </Product>
 

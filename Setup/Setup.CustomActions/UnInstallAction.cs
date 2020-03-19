@@ -44,6 +44,24 @@ namespace Setup.CustomActions
                     if (regKey != null)
                         regKey.DeleteSubKey("Scribens");
                 }
+
+                using (var regKey = Registry.CurrentUser.OpenSubKey(excelAddinKey, true))
+                {
+                    if (regKey != null)
+                        regKey.DeleteSubKey("Scribens");
+                }
+
+                using (var regKey = Registry.CurrentUser.OpenSubKey(outlookAddinKey, true))
+                {
+                    if (regKey != null)
+                        regKey.DeleteSubKey("Scribens");
+                }
+
+                using (var regKey = Registry.CurrentUser.OpenSubKey(powerPointAddinKey, true))
+                {
+                    if (regKey != null)
+                        regKey.DeleteSubKey("Scribens");
+                }
             }
             catch(Exception ex)
             {
