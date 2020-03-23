@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi" xmlns:util="http://schemas.microsoft.com/wix/UtilExtension">  
 	<Bundle Name="Plugin Scribens pour Microsoft Office" Version="1.0.0.0" Manufacturer="Scribens" 
           IconSourceFile="scribens.ico"
           UpgradeCode="cbb71511-264c-4b17-b718-49266867c411">
@@ -11,9 +11,24 @@
     </BootstrapperApplicationRef>
     
     <WixVariable Id="WixMbaPrereqLicenseUrl" Value=""/>
-        
-		<Chain>
+    <util:RegistrySearch Id="VSTORuntimeSearch" Root="HKLM" Key="SOFTWARE\Microsoft\VSTO Runtime Setup\v4R" Value="Version" Variable="VSTORuntime" Result="exists"/>
+    <util:RegistrySearch Id="VSTORuntimeSearch64" Root="HKLM" Key="SOFTWARE\Microsoft\VSTO Runtime Setup\v4R" Value="Version" Variable="VSTORuntime64" Result="exists" Win64="yes"/>
+    
+		<Chain>  
       <PackageGroupRef Id="NetFx46Redist"/>
+      
+      <ExePackage Id="VSTORunTimePackage" Cache="no" Compressed="no" PerMachine="yes" Permanent="no" Vital="yes" Name="vstor_redist.exe"
+                  InstallCommand="/q /norestart"
+                  DetectCondition="VSTORuntime"
+                  SourceFile="$(var.ProjectDir)\Distributes\vstor_redist.exe"
+                  InstallCondition="NOT VSTORuntime"
+                  DownloadUrl="https://download.microsoft.com/download/7/A/F/7AFA5695-2B52-44AA-9A2D-FC431C231EDC/vstor_redist.exe">
+        <!--<RemotePayload ProductName="Microsoft Visual Studio Tools for Office Runtime 2010"
+                       Description="Microsoft Visual Studio Tools for Office Runtime 2010"
+                       Version="10.0.60724.0" Size="40102072"
+                       Hash="f6022eb966df7af80f6df5db0d00a0b7a8f516b3"/>-->
+      </ExePackage>
+      
       <MsiPackage SourceFile="$(var.SetupMsi.TargetPath)" Id="ScribensMSOfficePlugin" Visible="no"/>
     </Chain>
 	</Bundle>

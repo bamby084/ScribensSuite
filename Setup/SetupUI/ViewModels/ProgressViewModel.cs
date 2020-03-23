@@ -65,7 +65,8 @@ namespace SetupUI.ViewModels
             Bootstrapper.ApplyComplete += OnApplyComplete;
             Bootstrapper.PlanComplete += OnPlanComplete;
             Bootstrapper.ExecuteProgress += OnExecuteProgress;
-
+            Bootstrapper.ExecuteMsiMessage += OnExecuteMsiMessage;
+            
             if (action == SetupAction.Install)
             {
                 Title = "Progression de l'installation";
@@ -79,10 +80,11 @@ namespace SetupUI.ViewModels
 
             _action = action;
         }
+
         #endregion
 
         #region Methods
-        
+
         #endregion
 
         #region Commands
@@ -122,6 +124,11 @@ namespace SetupUI.ViewModels
                     ? SetupAction.InstallComplete
                     : SetupAction.UnInstallComplete
             });
+        }
+
+        private void OnExecuteMsiMessage(object sender, ExecuteMsiMessageEventArgs e)
+        {
+            Status = e.Message;
         }
         #endregion
     }
