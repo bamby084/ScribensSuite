@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Windows.Input;
 using Microsoft.Tools.WindowsInstallerXml.Bootstrapper;
 using SetupUI.Enums;
@@ -66,7 +67,7 @@ namespace SetupUI.ViewModels
             Bootstrapper.PlanComplete += OnPlanComplete;
             Bootstrapper.ExecuteProgress += OnExecuteProgress;
             Bootstrapper.ExecuteMsiMessage += OnExecuteMsiMessage;
-            
+            Bootstrapper.ResolveSource += OnResolveSource;
             if (action == SetupAction.Install)
             {
                 Title = "Progression de l'installation";
@@ -129,6 +130,14 @@ namespace SetupUI.ViewModels
         private void OnExecuteMsiMessage(object sender, ExecuteMsiMessageEventArgs e)
         {
             Status = e.Message;
+        }
+
+        private void OnResolveSource(object sender, ResolveSourceEventArgs e)
+        {
+            if (!File.Exists(e.LocalSource) && !string.IsNullOrEmpty(e.DownloadSource))
+            {
+                e.Result = Result.Download;
+            }
         }
         #endregion
     }
