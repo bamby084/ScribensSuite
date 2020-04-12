@@ -1,0 +1,197 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C16681BC-1E81-459A-A4C3-4146053CFDF6}</ProjectGuid>
+    <OutputType>library</OutputType>
+    <RootNamespace>PluginScribens.UI</RootNamespace>
+    <AssemblyName>PluginScribens.UI</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="HtmlToXamlConverter, Version=1.0.5727.24510, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\HtmlToXamlConverter.1.0.5727.24510\lib\net45\HtmlToXamlConverter.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Word, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="WindowsFormsIntegration" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Controls\AnimatedImage.cs" />
+    <Compile Include="Controls\BindingHelper.cs" />
+    <Compile Include="Controls\HtmlTextBlock.cs" />
+    <Compile Include="Converters\DateTimeDisplayConverter.cs" />
+    <Compile Include="Converters\EmptyToVisibilityConverter.cs" />
+    <Compile Include="Converters\NullToVisibilityConverter.cs" />
+    <Compile Include="Converters\RemainingTimeConverter.cs" />
+    <Compile Include="Converters\StringResourceConverter.cs" />
+    <Compile Include="Converters\SubscriptionTypeConverter.cs" />
+    <Compile Include="Hosts\TaskPaneHost.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Hosts\TaskPaneHost.Designer.cs">
+      <DependentUpon>TaskPaneHost.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Messages\CheckingCompletedMessage.cs" />
+    <Compile Include="Messages\CheckingStartsMessage.cs" />
+    <Compile Include="Messages\IMessageHandlerOfT.cs" />
+    <Compile Include="Messages\LimCharExceededMessage.cs" />
+    <Compile Include="Messages\LogInCompletedMessage.cs" />
+    <Compile Include="Messages\LoginMessage.cs" />
+    <Compile Include="Messages\LogOutMessage.cs" />
+    <Compile Include="Messages\Messenger.cs" />
+    <Compile Include="Messages\ResetSnapshotMessage.cs" />
+    <Compile Include="Messages\ShowErrorMessage.cs" />
+    <Compile Include="Messages\ShowSolutionsMessage.cs" />
+    <Compile Include="Messages\ViewModelMessage.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Properties\Strings.Designer.cs">
+      <DependentUpon>Strings.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="ViewModels\AccountExpiredErrorViewModel.cs" />
+    <Compile Include="ViewModels\AccountInUsedErrorViewModel.cs" />
+    <Compile Include="ViewModels\BaseViewModel.cs" />
+    <Compile Include="ViewModels\ErrorViewModel.cs" />
+    <Compile Include="ViewModels\ExceedMaxCharacterErrorViewModel.cs" />
+    <Compile Include="ViewModels\ExceedTrialErrorViewModel.cs" />
+    <Compile Include="ViewModels\SolutionsViewModel.cs" />
+    <Compile Include="ViewModels\TaskPaneViewModel.cs" />
+    <Compile Include="ViewModels\UserInfoViewModel.cs" />
+    <Compile Include="Views\AccountExpiredErrorView.xaml.cs">
+      <DependentUpon>AccountExpiredErrorView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AccountInUsedErrorView.xaml.cs">
+      <DependentUpon>AccountInUsedErrorView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ExceedMaxCharacterErrorView.xaml.cs">
+      <DependentUpon>ExceedMaxCharacterErrorView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ExceedTrialErrorView.xaml.cs">
+      <DependentUpon>ExceedTrialErrorView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SolutionsView.xaml.cs">
+      <DependentUpon>SolutionsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TaskPaneView.xaml.cs">
+      <DependentUpon>TaskPaneView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserInfoView.xaml.cs">
+      <DependentUpon>UserInfoView.xaml</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Hosts\TaskPaneHost.resx">
+      <DependentUpon>TaskPaneHost.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Strings.fr.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Strings.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Strings.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Themes\AppStyle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\AccountExpiredErrorView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\AccountInUsedErrorView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ExceedMaxCharacterErrorView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ExceedTrialErrorView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\SolutionsView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\TaskPaneView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\UserInfoView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ScribensCommon\PluginScribens.Common.csproj">
+      <Project>{b5364f72-1e40-4b99-900a-0f6cd8d1791a}</Project>
+      <Name>PluginScribens.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B5364F72-1E40-4B99-900A-0F6CD8D1791A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PluginScribens.Common</RootNamespace>
+    <AssemblyName>PluginScribens.Common</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Word, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Microsoft.Office.Tools, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Microsoft.Office.Tools.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Office, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Attributes\ResourceMessageAttribute.cs" />
+    <Compile Include="ColorHelper.cs" />
+    <Compile Include="Enums\IdentityStatus.cs" />
+    <Compile Include="Enums\SolutionMode.cs" />
+    <Compile Include="Enums\SubscriptionType.cs" />
+    <Compile Include="ExtensionMethods\CollectionExtensions.cs" />
+    <Compile Include="ExtensionMethods\DateTimeExtensions.cs" />
+    <Compile Include="ExtensionMethods\DocumentExtensions.cs" />
+    <Compile Include="ExtensionMethods\EnumExtensions.cs" />
+    <Compile Include="ExtensionMethods\GrammarInfoExtensions.cs" />
+    <Compile Include="ExtensionMethods\OfficeExtensions.cs" />
+    <Compile Include="ExtensionMethods\ParagraphExtensions.cs" />
+    <Compile Include="ExtensionMethods\RangeExtensions.cs" />
+    <Compile Include="ExtensionMethods\StringExtensions.cs" />
+    <Compile Include="ExtensionMethods\TaskPaneExtensions.cs" />
+    <Compile Include="Globals.cs" />
+    <Compile Include="GrammarChecker\BackgroundChecker.cs" />
+    <Compile Include="GrammarChecker\GrammarInfo.cs" />
+    <Compile Include="GrammarChecker\GrammarSolutionModel.cs" />
+    <Compile Include="GrammarChecker\GrammarSolutions.cs" />
+    <Compile Include="GrammarChecker\GrammarSuggestion.cs" />
+    <Compile Include="GrammarChecker\IGrammarChecker.cs" />
+    <Compile Include="GrammarChecker\ScribensGrammarChecker.cs" />
+    <Compile Include="IdentityChecker\Identity.cs" />
+    <Compile Include="IdentityChecker\IIdentityChecker.cs" />
+    <Compile Include="IdentityChecker\ScribensIdentityChecker.cs" />
+    <Compile Include="IWindow.cs" />
+    <Compile Include="Language.cs" />
+    <Compile Include="Logger.cs" />
+    <Compile Include="LoginInfo.cs" />
+    <Compile Include="ParagraphInfo.cs" />
+    <Compile Include="PluralizationService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RelayCommand.cs" />
+    <Compile Include="ScribensServers.cs" />
+    <Compile Include="SessionChecker\ISessionChecker.cs" />
+    <Compile Include="SessionChecker\ScribensSessionChecker.cs" />
+    <Compile Include="SessionChecker\Session.cs" />
+    <Compile Include="Settings.cs" />
+    <Compile Include="Properties\Strings.Designer.cs">
+      <DependentUpon>Strings.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="TaskPool.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Strings.fr.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Strings.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Strings.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
