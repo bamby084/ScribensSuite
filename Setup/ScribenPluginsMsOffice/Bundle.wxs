@@ -17,16 +17,12 @@
 		<Chain>  
       <PackageGroupRef Id="NetFx46Redist"/>
       
-      <ExePackage Id="VSTORunTimePackage" Cache="no" Compressed="no" PerMachine="yes" Permanent="no" Vital="yes" Name="vstor_redist.exe"
+      <ExePackage Id="VSTORunTimePackage" Cache="no" Compressed="no" PerMachine="yes" Permanent="yes" Vital="yes" Name="vstor_redist.exe"
                   InstallCommand="/q /norestart"
-                  DetectCondition="VSTORuntime"
                   SourceFile="$(var.ProjectDir)\Distributes\vstor_redist.exe"
+                  DetectCondition="VSTORuntime"
                   InstallCondition="NOT VSTORuntime"
                   DownloadUrl="https://download.microsoft.com/download/7/A/F/7AFA5695-2B52-44AA-9A2D-FC431C231EDC/vstor_redist.exe">
-        <!--<RemotePayload ProductName="Microsoft Visual Studio Tools for Office Runtime 2010"
-                       Description="Microsoft Visual Studio Tools for Office Runtime 2010"
-                       Version="10.0.60724.0" Size="40102072"
-                       Hash="f6022eb966df7af80f6df5db0d00a0b7a8f516b3"/>-->
       </ExePackage>
       
       <MsiPackage SourceFile="$(var.SetupMsi.TargetPath)" Id="ScribensMSOfficePlugin" Visible="no"/>
