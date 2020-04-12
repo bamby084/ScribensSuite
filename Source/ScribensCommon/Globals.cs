@@ -4,7 +4,7 @@ using PluginScribens.Common.IdentityChecker;
 
 namespace PluginScribens.Common
 {
-    public partial class Globals
+    public class Plugin
     {
         private static readonly object LockObject = new object();
 

@@ -7,11 +7,11 @@ namespace PluginScribens.Common.SessionChecker
     {
         public static async Task NotifyScribensServer()
         {
-            if (Globals.CurrentIdentity == null)
+            if (Plugin.CurrentIdentity == null)
                 return;
 
             ISessionChecker sessionChecker = new ScribensSessionChecker();
-            await sessionChecker.NotifyAsync(Globals.CurrentIdentity.Email, Globals.Settings.Language.Abbreviation);
+            await sessionChecker.NotifyAsync(Plugin.CurrentIdentity.Email, Plugin.Settings.Language.Abbreviation);
         }
     }
 }

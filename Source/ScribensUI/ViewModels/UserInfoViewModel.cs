@@ -128,17 +128,17 @@ namespace PluginScribens.UI.ViewModels
         #region Methods
         public void UpdateLocalizationResources()
         {
-            LoginLabel = Globals.GetString("UserInfoPane.Login");
-            UserNameLabel = Globals.GetString("UserInfoPane.UserName");
-            PasswordLabel = Globals.GetString("UserInfoPane.Password");
-            ConnectButtonLabel = Globals.GetString("UserInfoPane.Connect");
-            ClearButtonLabel = Globals.GetString("UserInfoPane.Clear");
-            EmailLabel = Globals.GetString("UserInfoPane.Email");
-            SubscriptionLabel = Globals.GetString("UserInfoPane.Subscription");
-            ExpiredDateLabel = Globals.GetString("UserInfoPane.ExpiredDate");
-            BecomePremiumLabel = Globals.GetString("UserInfoPane.BecomePremium");
-            MyAccountLabel = Globals.GetString("UserInfoPane.MyAccount");
-            SignOutLabel = Globals.GetString("UserInfoPane.SignOut");
+            LoginLabel = Plugin.GetString("UserInfoPane.Login");
+            UserNameLabel = Plugin.GetString("UserInfoPane.UserName");
+            PasswordLabel = Plugin.GetString("UserInfoPane.Password");
+            ConnectButtonLabel = Plugin.GetString("UserInfoPane.Connect");
+            ClearButtonLabel = Plugin.GetString("UserInfoPane.Clear");
+            EmailLabel = Plugin.GetString("UserInfoPane.Email");
+            SubscriptionLabel = Plugin.GetString("UserInfoPane.Subscription");
+            ExpiredDateLabel = Plugin.GetString("UserInfoPane.ExpiredDate");
+            BecomePremiumLabel = Plugin.GetString("UserInfoPane.BecomePremium");
+            MyAccountLabel = Plugin.GetString("UserInfoPane.MyAccount");
+            SignOutLabel = Plugin.GetString("UserInfoPane.SignOut");
 
             NotifyPropertyChanged(nameof(Status));
             NotifyPropertyChanged(nameof(Identity));
@@ -152,9 +152,9 @@ namespace PluginScribens.UI.ViewModels
 
         public async Task AutoLogin()
         {
-            if (Globals.CurrentIdentity != null)
+            if (Plugin.CurrentIdentity != null)
             {
-                Identity = Globals.CurrentIdentity;
+                Identity = Plugin.CurrentIdentity;
                 LoginSectionVisibility = Visibility.Collapsed;
                 UserInfoSectionVisibility = Visibility.Visible;
                 LoadingIndicatorVisibility = Visibility.Collapsed;
@@ -189,7 +189,7 @@ namespace PluginScribens.UI.ViewModels
             try
             {
                 IIdentityChecker identityChecker = new ScribensIdentityChecker();
-                var identity = await identityChecker.CheckIdentityAsync(username, password, Globals.Settings.Language.Abbreviation);
+                var identity = await identityChecker.CheckIdentityAsync(username, password, Plugin.Settings.Language.Abbreviation);
                 LoadingIndicatorVisibility = Visibility.Collapsed;
 
                 if (identity.IsValid())
@@ -197,7 +197,7 @@ namespace PluginScribens.UI.ViewModels
                     LoginSectionVisibility = Visibility.Collapsed;
                     UserInfoSectionVisibility = Visibility.Visible;
                     Identity = identity;
-                    Globals.CurrentIdentity = identity;
+                    Plugin.CurrentIdentity = identity;
                     Messenger.BroadCastMessage(new LogInCompletedMessage(), this);
 
                     if (identity.Status == IdentityStatus.True)
@@ -237,13 +237,13 @@ namespace PluginScribens.UI.ViewModels
 
         private void Refresh()
         {
-            if (Globals.CurrentIdentity == null)
+            if (Plugin.CurrentIdentity == null)
             {
                 SignOut();
             }
             else
             {
-                Identity = Globals.CurrentIdentity;
+                Identity = Plugin.CurrentIdentity;
                 LoginSectionVisibility = Visibility.Collapsed;
                 UserInfoSectionVisibility = Visibility.Visible;
             }
@@ -417,7 +417,7 @@ namespace PluginScribens.UI.ViewModels
         public ICommand SignOutCommand { get; set; }
         public void SignOut(object param)
         {
-            Globals.CurrentIdentity = null;
+            Plugin.CurrentIdentity = null;
             SignOut();
             LoginInfo.Delete();
             //Globals.ThisAddIn.StopSessionTimer();

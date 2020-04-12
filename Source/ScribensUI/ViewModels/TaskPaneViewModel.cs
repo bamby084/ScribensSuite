@@ -119,9 +119,9 @@ namespace PluginScribens.UI.ViewModels
         #region Background Checker Events
         private void OnBackgroundBeforeChecking(object sender, ref bool cancel)
         {
-            if (Globals.CurrentIdentity != null)
+            if (Plugin.CurrentIdentity != null)
             {
-                if (Globals.CurrentIdentity.IsExpired())
+                if (Plugin.CurrentIdentity.IsExpired())
                 {
                     Debug.WriteLine("Cancel checking::Account is expired");
                     Messenger.SendMessage(new ShowErrorMessage(new AccountExpiredErrorViewModel() { WindowHost = this.WindowHost }), this);

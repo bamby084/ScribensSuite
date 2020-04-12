@@ -5,10 +5,10 @@ using System.Reflection;
 using System.Runtime.InteropServices;
 using Office = Microsoft.Office.Core;
 using Microsoft.Office.Interop.Word;
-using PluginScribens_Word.Enums;
+using PluginScribens.Common;
+using PluginScribens.Common.Enums;
+using PluginScribens.Common.ExtensionMethods;
 using PluginScribens_Word.Properties;
-using PluginScribens_Word.Utils;
-using PluginScribens_Word.ExtensionMethods;
 
 namespace PluginScribens_Word
 {
@@ -21,7 +21,7 @@ namespace PluginScribens_Word
         #region ctors
         public AddinRibbon()
         {
-            _selectedLanguage = Globals.Settings.Language.Abbreviation;
+            _selectedLanguage = Plugin.Settings.Language.Abbreviation;
         }
         #endregion
 

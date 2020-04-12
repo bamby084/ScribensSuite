@@ -14,7 +14,7 @@ namespace PluginScribens.Common
         public string DisplayNameResource { get; set; }
 
         [JsonIgnore]
-        public string DisplayName => Globals.GetString(DisplayNameResource);
+        public string DisplayName => Plugin.GetString(DisplayNameResource);
 
         public string Abbreviation { get; set; }
 

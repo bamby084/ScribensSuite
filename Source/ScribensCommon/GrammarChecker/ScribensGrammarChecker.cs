@@ -17,9 +17,9 @@ namespace PluginScribens.Common.GrammarChecker
         // Launch the request of checking
         public async Task<GrammarSolutions> CheckAsync(string text, string language)
         {
-            if(text.Length > Globals.Settings.LimitedCharacters)
+            if(text.Length > Plugin.Settings.LimitedCharacters)
             {
-                return new GrammarSolutions() { LimiteNbChar = Globals.Settings.LimitedCharacters };
+                return new GrammarSolutions() { LimiteNbChar = Plugin.Settings.LimitedCharacters };
             }
 
             var param = HttpUtility.ParseQueryString(string.Empty);
@@ -32,10 +32,10 @@ namespace PluginScribens.Common.GrammarChecker
 
             //Debug.WriteLine($"Text send to the server {text}");
 
-            if (Globals.CurrentIdentity != null)
+            if (Plugin.CurrentIdentity != null)
             {
-                param.Add("identifier", Globals.CurrentIdentity.Email);
-                param.Add("password", Globals.CurrentIdentity.Password);
+                param.Add("identifier", Plugin.CurrentIdentity.Email);
+                param.Add("password", Plugin.CurrentIdentity.Password);
             }
             
             string host = ScribensServers.GetHost(language);
@@ -78,12 +78,12 @@ namespace PluginScribens.Common.GrammarChecker
 
             string[] keys = new string[] { "RefOrth", "ShowUPSol", "UsBr" };
 
-            if (Globals.CurrentIdentity == null || Globals.CurrentIdentity.Options.IsNull())
+            if (Plugin.CurrentIdentity == null || Plugin.CurrentIdentity.Options.IsNull())
                 return defaultOptions;
 
             try
             {
-                var options = Globals.CurrentIdentity.Options.Split('|').Select(item => item.Split(':')).ToDictionary(s => s[0], s => s[1]);
+                var options = Plugin.CurrentIdentity.Options.Split('|').Select(item => item.Split(':')).ToDictionary(s => s[0], s => s[1]);
                 string result = baseOptions;
 
                 foreach (string key in keys)
@@ -108,13 +108,13 @@ namespace PluginScribens.Common.GrammarChecker
         {
             string defaultOptions = "RefOrth:0|ShowUPSol:1|UsBr:-1|RepMin:3|GapRep:3|AllWords:0|FamilyWords:0|MinPhLg:30|MinPhCt:5|Ttr:250|Tts:150";
 
-            if (Globals.CurrentIdentity == null || Globals.CurrentIdentity.Options.IsNull())
+            if (Plugin.CurrentIdentity == null || Plugin.CurrentIdentity.Options.IsNull())
                 return defaultOptions;
 
             try
             {
                 string[] keys = new string[] { "RepMin", "GapRep", "AllWords", "FamilyWords", "MinPhLg", "MinPhCt", "Ttr", "Tts" };
-                var options = Globals.CurrentIdentity.Options.Split('|').Select(item => item.Split(':')).ToDictionary(s => s[0], s => s[1]);
+                var options = Plugin.CurrentIdentity.Options.Split('|').Select(item => item.Split(':')).ToDictionary(s => s[0], s => s[1]);
                 string result = string.Empty;
 
                 foreach (string key in keys)

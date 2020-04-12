@@ -16,7 +16,7 @@ namespace PluginScribens.UI.Converters
                 return null;
 
             if (identity.IsExpired())
-                return Globals.GetString("UserInfoPane.Subscription.Expired");
+                return Plugin.GetString("UserInfoPane.Subscription.Expired");
 
             DateTime now = DateTime.Now;
             DateTime expired = identity.ExpiredDate.Value.MaxTimeOfDay();
@@ -25,19 +25,19 @@ namespace PluginScribens.UI.Converters
             if(totalMonths >= 12)
             {
                 int totalYears = totalMonths / 12 + (totalMonths % 12 > 0 ? 1 : 0);
-                return Pluralize(totalYears, Globals.GetString("UserInfoPane.Message.RemainingYears"));
+                return Pluralize(totalYears, Plugin.GetString("UserInfoPane.Message.RemainingYears"));
             }
 
             if (totalMonths > 0)
             {
-                return Pluralize(totalMonths, Globals.GetString("UserInfoPane.Message.RemainingMonths"));
+                return Pluralize(totalMonths, Plugin.GetString("UserInfoPane.Message.RemainingMonths"));
             }
 
             int totalDays = (int)Math.Ceiling((expired - now).TotalDays);
             if (totalDays > 0)
-                return Pluralize(totalDays, Globals.GetString("UserInfoPane.Message.RemainingDays"));
+                return Pluralize(totalDays, Plugin.GetString("UserInfoPane.Message.RemainingDays"));
 
-            return Globals.GetString("UserInfoPane.Subscription.Expired");
+            return Plugin.GetString("UserInfoPane.Subscription.Expired");
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
@@ -47,7 +47,7 @@ namespace PluginScribens.UI.Converters
 
         private string Pluralize(int number, string phrase)
         {
-            var pluralizationService = PluralizationService.Create(Globals.CurrentCulture);
+            var pluralizationService = PluralizationService.Create(Plugin.CurrentCulture);
             if (number > 1)
                 return $"{number} {pluralizationService.Pluralize(phrase)}";
 

@@ -12,7 +12,7 @@ namespace PluginScribens.UI.Converters
             if (value == null)
                 return null;
 
-            return Globals.GetString(value.ToString());
+            return Plugin.GetString(value.ToString());
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)

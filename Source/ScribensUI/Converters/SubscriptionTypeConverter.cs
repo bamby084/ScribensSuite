@@ -15,15 +15,15 @@ namespace PluginScribens.UI.Converters
 
             var subscriptionType = (SubscriptionType) value;
             if (subscriptionType == SubscriptionType.NOT_AVAILABLE || subscriptionType == SubscriptionType.TRIAL)
-                return Globals.GetString("UserInfoPane.Subscription.NotExist");
+                return Plugin.GetString("UserInfoPane.Subscription.NotExist");
             else if (subscriptionType == SubscriptionType.P1M || subscriptionType == SubscriptionType.P1M_RA)
-                return $"{Globals.GetString("UserInfoPane.SubscriptionType_P1M")}";
+                return $"{Plugin.GetString("UserInfoPane.SubscriptionType_P1M")}";
             else if (subscriptionType == SubscriptionType.P3M || subscriptionType == SubscriptionType.P3M_RA)
-                return $"{Globals.GetString("UserInfoPane.SubscriptionType_P3M")}";
+                return $"{Plugin.GetString("UserInfoPane.SubscriptionType_P3M")}";
             else if (subscriptionType == SubscriptionType.P1A || subscriptionType == SubscriptionType.P1A_RA)
-                return $"{Globals.GetString("UserInfoPane.SubscriptionType_P1A")}";
+                return $"{Plugin.GetString("UserInfoPane.SubscriptionType_P1A")}";
             else if (subscriptionType.ToString().EndsWith("_EXPIRED"))
-                return Globals.GetString("UserInfoPane.Subscription.Expired");
+                return Plugin.GetString("UserInfoPane.Subscription.Expired");
 
             return null;
         }

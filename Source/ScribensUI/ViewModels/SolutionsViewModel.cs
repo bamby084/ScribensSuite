@@ -271,9 +271,9 @@ namespace PluginScribens.UI.ViewModels
 
         public void UpdateLocalizationResources()
         {
-            NoSuggestionText = Globals.GetString("TaskPane.NoSuggestion");
-            ApplySolutionButtonToolTip = Globals.GetString("TaskPane.ApplySolutionButtonToolTip");
-            IgnoreSolutionToolTip = Globals.GetString("TaskPane.IgnoreCorrection");
+            NoSuggestionText = Plugin.GetString("TaskPane.NoSuggestion");
+            ApplySolutionButtonToolTip = Plugin.GetString("TaskPane.ApplySolutionButtonToolTip");
+            IgnoreSolutionToolTip = Plugin.GetString("TaskPane.IgnoreCorrection");
             
             NotifyPropertyChanged(nameof(ErrorViewModel));
             NotifyPropertyChanged(nameof(Status));

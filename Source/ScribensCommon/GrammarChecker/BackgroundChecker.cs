@@ -87,7 +87,7 @@ namespace PluginScribens.Common.GrammarChecker
             if (_timer == null)
             {
                 _timer = new Timer();
-                _timer.Interval = Globals.Settings.BackgroundCheckingInterval * 1000;
+                _timer.Interval = Plugin.Settings.BackgroundCheckingInterval * 1000;
                 _timer.Elapsed += OnTimerElapsed;
             }
 
@@ -110,7 +110,7 @@ namespace PluginScribens.Common.GrammarChecker
         // Function of modified text
         private async void OnTimerElapsed(object sender, System.Timers.ElapsedEventArgs e)
         {
-            if (!IsEnabled || !Globals.Settings.AllowBackgroundChecking)
+            if (!IsEnabled || !Plugin.Settings.AllowBackgroundChecking)
                 return;
 
             if(OnBeforeChecking != null)
@@ -160,7 +160,7 @@ namespace PluginScribens.Common.GrammarChecker
                     var textToCheck = diffs.Join();
 
                     // Check the character limit length before sending to the server, because it save CPU.
-                    if (textToCheck.Length > Globals.Settings.LimitedCharacters)
+                    if (textToCheck.Length > Plugin.Settings.LimitedCharacters)
                     {
                         OnLimCharExceeded?.Invoke(this, new LimCharExceededEventArgs());
                         Lock = false;
@@ -179,7 +179,7 @@ namespace PluginScribens.Common.GrammarChecker
                             return;
                         }
                     }
-                    var solutions = GrammarChecker.CheckAsync(textToCheck, Globals.Settings.Language.Abbreviation).Result;
+                    var solutions = GrammarChecker.CheckAsync(textToCheck, Plugin.Settings.Language.Abbreviation).Result;
                     if (token.IsCancellationRequested)
                     {
                         Debug.WriteLine($"Task {taskId} cancelled due to requested");
