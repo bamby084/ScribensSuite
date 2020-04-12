@@ -1,7 +1,5 @@
 ﻿using Microsoft.Office.Interop.Word;
-using Microsoft.Office.Tools;
 using System;
-using System.Linq;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
@@ -190,17 +188,5 @@ namespace PluginScribens.Common.ExtensionMethods
             return document.GetDiffs(snapshotParagraphs);
         }
 
-        //public static CustomTaskPane GetTaskPane(this Document document)
-        //{
-        //    var applicationWindow = Globals.ThisAddIn.Application.Windows.GetWindowByDocument(document);
-        //    if (applicationWindow == null)
-        //        return null;
-
-        //    IWindow window = Globals.Windows.GetWindow(applicationWindow.Hwnd);
-        //    if (window == null)
-        //        return null;
-
-        //    return window.GetTaskPane();
-        //}
     }
 }

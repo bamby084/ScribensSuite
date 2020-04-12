@@ -213,6 +213,8 @@
   -->
   <ItemGroup>
     <Compile Include="AddinRibbon.cs" />
+    <Compile Include="ExtensionMethods\DocumentExtensions.cs" />
+    <Compile Include="ExtensionMethods\WindowExtensions.cs" />
     <Compile Include="Globals.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -227,6 +229,8 @@
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="WordWindow.cs" />
+    <Compile Include="WordWindowManager.cs" />
     <EmbeddedResource Include="Properties\Strings.fr.resx">
       <SubType>Designer</SubType>
     </EmbeddedResource>
@@ -304,6 +308,7 @@
       <Name>PluginScribens.UI</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

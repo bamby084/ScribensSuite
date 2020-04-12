@@ -9,13 +9,16 @@ using log4net.Core;
 using Task = System.Threading.Tasks.Task;
 using Timer = System.Timers.Timer;
 using System.Timers;
+using System.Windows.Input.StylusPlugIns;
 using PluginScribens.Common;
 using PluginScribens.Common.Enums;
 using PluginScribens.Common.ExtensionMethods;
 using PluginScribens.Common.IdentityChecker;
 using PluginScribens.Common.SessionChecker;
 using PluginScribens.UI.Hosts;
+using PluginScribens_Word.ExtensionMethods;
 using PluginScribens_Word.Properties;
+using Settings = PluginScribens.Common.Settings;
 
 namespace PluginScribens_Word
 {
@@ -35,6 +38,7 @@ namespace PluginScribens_Word
             RegisterEvents();
             ConfigureLogger();
             SetResourcesCulture();
+            Plugin.Windows = new WordWindowManager();
             await AutoLogin();
         }
 
@@ -132,7 +136,7 @@ namespace PluginScribens_Word
             RollingFileAppender roller = new RollingFileAppender();
             roller.LockingModel = new FileAppender.MinimalLock();
             roller.AppendToFile = true;
-            roller.File = Path.Combine(Utils.Settings.GetAppDataFolder(), "log.txt");
+            roller.File = Path.Combine(Settings.GetAppDataFolder(), "log.txt");
             roller.Layout = patternLayout;
             roller.MaxSizeRollBackups = 5;
             roller.MaximumFileSize = "10MB";

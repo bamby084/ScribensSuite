@@ -8,6 +8,7 @@ using Microsoft.Office.Interop.Word;
 using PluginScribens.Common;
 using PluginScribens.Common.Enums;
 using PluginScribens.Common.ExtensionMethods;
+using PluginScribens_Word.ExtensionMethods;
 using PluginScribens_Word.Properties;
 using Language = PluginScribens.Common.Language;
 
@@ -154,7 +155,7 @@ namespace PluginScribens_Word
             Plugin.Settings.Language = Language.Find(_selectedLanguage);
             Plugin.Settings.Save();
             Globals.ThisAddIn.RefreshRibbon();
-            Plugin.Windows.UpdateTaskPanes();
+            //Plugin.Windows.UpdateTaskPanes();
             ReCheck(control);
         }
 
@@ -233,7 +234,7 @@ namespace PluginScribens_Word
             IWindow window = control.GetWindow();
             if (window == null)
             { 
-                window = Globals.Windows.AddNewWindow(((Window)control.Context).Hwnd);
+                window = Plugin.Windows.AddNewWindow(((Window)control.Context).Hwnd);
             }
 
             window.ReCheck();
