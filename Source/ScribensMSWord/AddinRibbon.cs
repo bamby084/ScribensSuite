@@ -9,6 +9,7 @@ using PluginScribens.Common;
 using PluginScribens.Common.Enums;
 using PluginScribens.Common.ExtensionMethods;
 using PluginScribens_Word.Properties;
+using Language = PluginScribens.Common.Language;
 
 namespace PluginScribens_Word
 {
@@ -128,17 +129,17 @@ namespace PluginScribens_Word
             {
                 var window = control.GetWindow();
                 if (window == null)
-                    return Globals.GetString("Ribbon.ShowTaskPaneButton");
+                    return Plugin.GetString("Ribbon.ShowTaskPaneButton");
 
                 var taskPane = window.GetTaskPane();
                 if (taskPane == null || !taskPane.Visible)
-                    return Globals.GetString("Ribbon.ShowTaskPaneButton");
+                    return Plugin.GetString("Ribbon.ShowTaskPaneButton");
 
-                return Globals.GetString("Ribbon.CloseTaskPane");
+                return Plugin.GetString("Ribbon.CloseTaskPane");
             }
             else
             {
-                return Globals.GetString($"Ribbon.{control.Id}");
+                return Plugin.GetString($"Ribbon.{control.Id}");
             }
         }
 
@@ -150,19 +151,11 @@ namespace PluginScribens_Word
         public void OnLanguageChanged(Office.IRibbonControl control, string selectedId, string selectedIndex)
         {
             _selectedLanguage = selectedId;
-            Globals.Settings.Language = Utils.Language.Find(_selectedLanguage);
-            Globals.Settings.Save();
+            Plugin.Settings.Language = Language.Find(_selectedLanguage);
+            Plugin.Settings.Save();
             Globals.ThisAddIn.RefreshRibbon();
-            Globals.Windows.UpdateTaskPanes();
+            Plugin.Windows.UpdateTaskPanes();
             ReCheck(control);
-        }
-
-        public void ShowSettingsPage(Office.IRibbonControl control)
-        {
-            var settings = new SettingsPageHost();
-            settings.Width = 600;
-            settings.Height = 375;
-            settings.ShowDialog();
         }
 
         public void ShowUserInfo(Office.IRibbonControl control)
@@ -173,7 +166,7 @@ namespace PluginScribens_Word
             IWindow window = control.GetWindow();
             if (window == null)
             {
-                window = Globals.Windows.AddNewWindow(((Window)control.Context).Hwnd);
+                window = Plugin.Windows.AddNewWindow(((Window)control.Context).Hwnd);
             }
 
             window.ShowUserInfo();
@@ -187,7 +180,7 @@ namespace PluginScribens_Word
             IWindow window = control.GetWindow();
             if (window == null)
             {
-                window = Globals.Windows.AddNewWindow(((Window)control.Context).Hwnd);
+                window = Plugin.Windows.AddNewWindow(((Window)control.Context).Hwnd);
             }
 
             window.ShowSolutions();

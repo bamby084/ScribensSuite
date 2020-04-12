@@ -1,6 +1,5 @@
 ﻿using Microsoft.Office.Interop.Word;
 using System.Net;
-using PluginScribens_Word.ExtensionMethods;
 using log4net.Repository.Hierarchy;
 using log4net;
 using log4net.Layout;
@@ -10,10 +9,13 @@ using log4net.Core;
 using Task = System.Threading.Tasks.Task;
 using Timer = System.Timers.Timer;
 using System.Timers;
-using PluginScribens_Word.Checkers.IdentityChecker;
-using PluginScribens_Word.Enums;
+using PluginScribens.Common;
+using PluginScribens.Common.Enums;
+using PluginScribens.Common.ExtensionMethods;
+using PluginScribens.Common.IdentityChecker;
+using PluginScribens.Common.SessionChecker;
+using PluginScribens.UI.Hosts;
 using PluginScribens_Word.Properties;
-using PluginScribens_Word.Utils;
 
 namespace PluginScribens_Word
 {
@@ -75,7 +77,7 @@ namespace PluginScribens_Word
             if(_timer == null)
             {
                 _timer = new Timer();
-                _timer.Interval = Globals.Settings.SessionActiveTimerInterval * 1000;
+                _timer.Interval = Plugin.Settings.SessionActiveTimerInterval * 1000;
                 _timer.Elapsed += OnSessionActiveTimerElapsed;
             }
 
@@ -145,7 +147,7 @@ namespace PluginScribens_Word
 
         private void SetResourcesCulture()
         {
-            Strings.Culture = Globals.CurrentCulture;
+            Strings.Culture = Plugin.CurrentCulture;
         }
 
         private async Task AutoLogin()
@@ -155,11 +157,11 @@ namespace PluginScribens_Word
                 return;
 
             IIdentityChecker idChecker = new ScribensIdentityChecker();
-            var identity = await idChecker.CheckIdentityAsync(loginInfo.Username, loginInfo.Password, Globals.Settings.Language.Abbreviation);
+            var identity = await idChecker.CheckIdentityAsync(loginInfo.Username, loginInfo.Password, Plugin.Settings.Language.Abbreviation);
             
             if(identity.IsValid())
             {
-                Globals.CurrentIdentity = identity;
+                Plugin.CurrentIdentity = identity;
                 if (identity.Status == IdentityStatus.True)
                     StartSessionTimer();
             }
@@ -171,14 +173,14 @@ namespace PluginScribens_Word
         {
             var applicationWindow = Application.Windows.GetWindowByDocument(document);
             if (applicationWindow != null)
-                Globals.Windows.AddNewWindow(applicationWindow.Hwnd);
+                Plugin.Windows.AddNewWindow(applicationWindow.Hwnd);
         }
 
         private void OnDocumentOpen(Document document)
         {
             var applicationWindow = Application.Windows.GetWindowByDocument(document);
             if (applicationWindow != null)
-                Globals.Windows.AddNewWindow(applicationWindow.Hwnd);
+                Plugin.Windows.AddNewWindow(applicationWindow.Hwnd);
         }
 
         private void OnDocumentBeforeClose(Document document, ref bool cancel)
@@ -187,7 +189,7 @@ namespace PluginScribens_Word
             if (applicationWindow == null)
                 return;
 
-            IWindow window = Globals.Windows.GetWindow(applicationWindow.Hwnd);
+            IWindow window = Plugin.Windows.GetWindow(applicationWindow.Hwnd);
             if (window != null)
                 window.RemoveTaskPane();
         }
