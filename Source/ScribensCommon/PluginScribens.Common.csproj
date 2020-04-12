@@ -106,6 +106,7 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="TaskPool.cs" />
+    <Compile Include="WindowManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

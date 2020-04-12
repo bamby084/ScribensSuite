@@ -34,5 +34,7 @@ namespace PluginScribens.Common
         public static Identity CurrentIdentity { get; set; }
 
         public static CultureInfo CurrentCulture { get; set; } = new CultureInfo("fr-FR");
+
+        public static IWindowManager Windows { get; set; }
     }
 }
