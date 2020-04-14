@@ -2,7 +2,6 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
     <SolidColorBrush x:Key="ErrorColor">#d9534f</SolidColorBrush>
-
     <SolidColorBrush x:Key="ButtonBackgroundColor">#1992cf</SolidColorBrush>
 
     <Style TargetType="{x:Type Button}" x:Key="CorrectionButtonStyle">
@@ -64,7 +63,7 @@
                 <Button Width="30" Height="30" Grid.Column="1" Padding="0" ToolTip="Ignore"
                         Command="{Binding Path=DataContext.IgnoreCorrectionCommand, ElementName=ToggleButton}"
                         Style="{StaticResource ActionButtonStyle}">
-                    <Image Source="/PluginScribens_Word;component/Resources/trashx32.png"/>
+                    <Image Source="/PluginScribens.UI;component/Resources/trashx32.png"/>
                 </Button>
             </Grid>
         </Border>

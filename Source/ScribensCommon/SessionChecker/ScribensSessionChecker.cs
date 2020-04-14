@@ -5,7 +5,6 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web;
-using PluginScribens.Checker;
 
 namespace PluginScribens.Common.SessionChecker
 {

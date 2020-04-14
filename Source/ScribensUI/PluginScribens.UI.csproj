@@ -193,5 +193,29 @@
       <Name>PluginScribens.Common</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Resources\account.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\calendar1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\calendar2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\england-flag.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\french-flag.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\language.png" />
+    <Resource Include="Resources\verification2.png" />
+    <Resource Include="Resources\trashx32.png" />
+    <Resource Include="Resources\successful.png" />
+    <Resource Include="Resources\reloadx26.gif" />
+    <Resource Include="Resources\reloadx124.gif" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

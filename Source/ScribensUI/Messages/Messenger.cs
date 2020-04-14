@@ -50,8 +50,7 @@ namespace PluginScribens.UI.Messages
         {
             foreach (var viewModel in viewModels)
             {
-                var messageHandler = viewModel as IMessageHandler<TMessage>;
-                if (messageHandler != null && viewModel != owner)
+                if (viewModel is IMessageHandler<TMessage> messageHandler && viewModel != owner)
                     messageHandler.HandleMessage(message);
             }
         }

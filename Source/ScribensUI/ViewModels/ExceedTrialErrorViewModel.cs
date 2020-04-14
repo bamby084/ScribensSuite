@@ -1,5 +1,6 @@
 ﻿using System.Diagnostics;
 using System.Windows.Input;
+using PluginScribens.Common;
 using PluginScribens.UI.Messages;
 
 namespace PluginScribens.UI.ViewModels

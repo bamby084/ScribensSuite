@@ -616,7 +616,7 @@ namespace PluginScribens.UI.ViewModels
 
         private void UpdateRibbon()
         {
-            //Globals.ThisAddIn.Ribbon.Invalidate();
+            Plugin.PublishEvent(GlobalEventNames.InvalidateRibbon);
         }
 
 

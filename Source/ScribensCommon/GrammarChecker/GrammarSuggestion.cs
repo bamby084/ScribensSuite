@@ -2,7 +2,6 @@
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Windows.Input;
-using PluginScribens.UI;
 
 namespace PluginScribens.Common.GrammarChecker
 {

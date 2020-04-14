@@ -14,7 +14,7 @@
     <UserControl.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="/PluginScribens_Word;component/WPF/Themes/AppStyle.xaml"/>
+                <ResourceDictionary Source="/PluginScribens.UI;component/Themes/AppStyle.xaml"/>
             </ResourceDictionary.MergedDictionaries>
 
             <converters:NullToVisibilityConverter x:Key="Null2VisibilityConverter"/>
@@ -83,7 +83,7 @@
                     Visibility="{Binding Path=SelectedSolution, Converter={StaticResource Null2VisibilityConverter}}">
                 <Button Style="{StaticResource ActionButtonStyle}" Width="30" Height="30" ToolTip="{Binding Path=IgnoreSolutionToolTip}"
                     Command="{Binding Path=IgnoreSolutionCommand}">
-                    <Image Source="/PluginScribens_Word;component/Resources/trashx32.png"/>
+                    <Image Source="/PluginScribens.UI;component/Resources/trashx32.png"/>
                 </Button>
             </StackPanel>
 
@@ -135,10 +135,10 @@
             </Grid.ColumnDefinitions>
 
             <controls:AnimatedImage x:Name="LoadingImage" Width="24" Height="24" VerticalAlignment="Center" Grid.Column="1"
-                                    GifSource="/PluginScribens_Word;component/Resources/reloadx26.gif" 
+                                    GifSource="/PluginScribens.UI;component/Resources/reloadx26.gif" 
                                     Visibility="{Binding Path=LoadingImageVisibility, FallbackValue=Collapsed}"/>
 
-                <Image x:Name="NoIssuesImage" Width="26" Height="26" Source="/PluginScribens_Word;component/Resources/successful.png" 
+                <Image x:Name="NoIssuesImage" Width="26" Height="26" Source="/PluginScribens.UI;component/Resources/successful.png" 
                    Grid.Column="1" Visibility="{Binding Path=NoIssueImageVisiblity, FallbackValue=Collapsed}"/>
 
             <Button x:Name="IssuesCount" Visibility="{Binding Path=IssueCountControlVisibility, FallbackValue=Visible}" Grid.Column="1">

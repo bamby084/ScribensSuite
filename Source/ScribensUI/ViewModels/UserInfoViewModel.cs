@@ -203,7 +203,7 @@ namespace PluginScribens.UI.ViewModels
                     if (identity.Status == IdentityStatus.True)
                     {
                         Messenger.SendMessage(new ResetSnapshotMessage(), this);
-                        //Globals.ThisAddIn.StartSessionTimer();
+                        Plugin.PublishEvent(GlobalEventNames.StartSessionTimer);
                     }
 
                     if (saveIdentity)
@@ -420,7 +420,7 @@ namespace PluginScribens.UI.ViewModels
             Plugin.CurrentIdentity = null;
             SignOut();
             LoginInfo.Delete();
-            //Globals.ThisAddIn.StopSessionTimer();
+            Plugin.PublishEvent(GlobalEventNames.StopSessionTimer);
             Messenger.BroadCastMessage(new LogOutMessage(), this);
         }
         #endregion

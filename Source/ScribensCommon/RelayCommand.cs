@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Input;
 
-namespace PluginScribens.UI
+namespace PluginScribens.Common
 {
     public class RelayCommand : ICommand
     {

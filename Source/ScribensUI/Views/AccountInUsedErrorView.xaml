@@ -25,8 +25,7 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-        <Image Source="pack://application:,,,/PluginScribens_Word;component/Resources/calendar1.png" Width="64"
-                                       RenderOptions.BitmapScalingMode="HighQuality"/>
+        <Image Source="/PluginScribens.UI;component/Resources/calendar1.png" Width="64" RenderOptions.BitmapScalingMode="HighQuality"/>
         <TextBlock Text="{Binding Path=ErrorMessage, Converter={StaticResource StringResourceConverter}}" 
                                        TextWrapping="Wrap" Grid.Row="2" FontSize="16pt" Foreground="#297BBF"
                                        VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center"/>

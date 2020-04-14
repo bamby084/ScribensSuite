@@ -36,6 +36,7 @@ namespace PluginScribens_Word
         {
             EnableTLS();
             RegisterEvents();
+            RegisterGlobalEvents();
             ConfigureLogger();
             SetResourcesCulture();
             Plugin.Windows = new WordWindowManager();
@@ -151,7 +152,7 @@ namespace PluginScribens_Word
 
         private void SetResourcesCulture()
         {
-            Strings.Culture = Plugin.CurrentCulture;
+            Plugin.SetResourcesCulture(Plugin.CurrentCulture);
         }
 
         private async Task AutoLogin()
@@ -170,6 +171,12 @@ namespace PluginScribens_Word
                     StartSessionTimer();
             }
         }
+
+        private void RegisterGlobalEvents()
+        {
+            Plugin.GlobalEvent += OnGlobalEvent;
+        }
+
         #endregion
 
         #region App Event Handlers
@@ -236,6 +243,16 @@ namespace PluginScribens_Word
         private void OnSessionActiveTimerElapsed(object sender, ElapsedEventArgs e)
         {
             Task.Factory.StartNew(async () => await Session.NotifyScribensServer());
+        }
+
+        private void OnGlobalEvent(object sender, string eventName)
+        {
+            if(eventName == GlobalEventNames.StartSessionTimer)
+                StartSessionTimer();
+            else if(eventName == GlobalEventNames.StopSessionTimer)
+                StopSessionTimer();
+            else if(eventName == GlobalEventNames.InvalidateRibbon)
+                Ribbon.Invalidate();
         }
         #endregion
     }

@@ -2,6 +2,7 @@
 using Microsoft.Office.Core;
 using Microsoft.Office.Interop.Word;
 using PluginScribens.Common;
+using CustomTaskPane = Microsoft.Office.Tools.CustomTaskPane;
 
 namespace PluginScribens_Word.ExtensionMethods
 {
@@ -39,6 +40,19 @@ namespace PluginScribens_Word.ExtensionMethods
 
             IWindow window = Plugin.Windows.GetWindow(applicationWindow.Hwnd);
             return window;
+        }
+
+        public static CustomTaskPane GetTaskPane(this Document document)
+        {
+            var applicationWindow = Globals.ThisAddIn.Application.Windows.GetWindowByDocument(document);
+            if (applicationWindow == null)
+                return null;
+
+            IWindow window = Plugin.Windows.GetWindow(applicationWindow.Hwnd);
+            if (window == null)
+                return null;
+
+            return window.GetTaskPane();
         }
     }
 }

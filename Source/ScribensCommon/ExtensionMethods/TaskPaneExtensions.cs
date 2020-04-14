@@ -7,10 +7,10 @@ namespace PluginScribens.Common.ExtensionMethods
 {
     public static class TaskPaneExtensions
     {
-        //public static CustomTaskPane GetTaskPane(this CustomTaskPaneCollection taskPanes, int hWnd)
-        //{
-        //    return taskPanes.Where(tp => tp.Window != null)
-        //        .FirstOrDefault(tp => ((Window)tp.Window).Hwnd == hWnd && tp.Control is TaskPaneHost);
-        //}
+        public static CustomTaskPane GetTaskPane(this CustomTaskPaneCollection taskPanes, int hWnd)
+        {
+            return taskPanes.Where(tp => tp.Window != null)
+                .FirstOrDefault(tp => ((Window)tp.Window).Hwnd == hWnd);
+        }
     }
 }

@@ -76,6 +76,7 @@
     <Compile Include="ExtensionMethods\RangeExtensions.cs" />
     <Compile Include="ExtensionMethods\StringExtensions.cs" />
     <Compile Include="ExtensionMethods\TaskPaneExtensions.cs" />
+    <Compile Include="GlobalEventNames.cs" />
     <Compile Include="Globals.cs" />
     <Compile Include="GrammarChecker\BackgroundChecker.cs" />
     <Compile Include="GrammarChecker\GrammarInfo.cs" />

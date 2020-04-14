@@ -39,14 +39,14 @@ namespace PluginScribens.Common
                     Abbreviation = "fr",
                     Culture = "fr-FR",
                     IsDefault = true,
-                    IconUri = "pack://application:,,,/PluginScribens_Word;component/Resources/french-flag.png",
+                    IconUri = "pack://application:,,,/PluginScribens.UI;component/Resources/french-flag.png",
                 },
                 new Language()
                 {
                     DisplayNameResource = "Language.English",
                     Abbreviation = "en",
                     Culture = "en-US",
-                    IconUri = "pack://application:,,,/PluginScribens_Word;component/Resources/england-flag.png",
+                    IconUri = "pack://application:,,,/PluginScribens.UI;component/Resources/england-flag.png",
                 },
             });
 

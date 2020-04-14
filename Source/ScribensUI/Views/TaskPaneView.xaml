@@ -11,7 +11,7 @@
     <UserControl.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="/PluginScribens_Word;component/WPF/Themes/AppStyle.xaml"/>
+                <ResourceDictionary Source="/PluginScribens.UI;component/Themes/AppStyle.xaml"/>
             </ResourceDictionary.MergedDictionaries>
 
             <DataTemplate DataType="{x:Type viewModels:SolutionsViewModel}">

@@ -203,16 +203,6 @@ namespace PluginScribens_Word.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap survey {
-            get {
-                object obj = ResourceManager.GetObject("survey", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap verification2 {
             get {
                 object obj = ResourceManager.GetObject("verification2", resourceCulture);

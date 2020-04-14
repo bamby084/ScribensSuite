@@ -1,5 +1,4 @@
-﻿using System;
-using PluginScribens.Common;
+﻿using PluginScribens.Common;
 
 namespace PluginScribens_Word
 {
@@ -7,7 +6,7 @@ namespace PluginScribens_Word
     {
         public override IWindow CreateWindow(int hWnd)
         {
-            throw new NotImplementedException();
+            return new WordWindow(hWnd);
         }
     }
 }

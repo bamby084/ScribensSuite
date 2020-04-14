@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace PluginScribens.Checker
+namespace PluginScribens.Common
 {
     public static class ScribensServers
     {
